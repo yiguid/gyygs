@@ -165,8 +165,6 @@ pip-log.txt
 robots.txt
 plugin.php
 js.html
-index.php
-index.html
 favicon.ico
 crossdomain.xml
 api.php
@@ -184,4 +182,3 @@ phpcms/model
 phpcms/modules
 phpcms/plugin
 phpcms/base.php
-phpcms/index.html
