@@ -74,11 +74,19 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 .box h5,.box h6{background: url(../images/v9/title.png) no-repeat right top;color:white; height:26px; margin-bottom:10px; line-height:26px; padding-left:10px;border-bottom:1px solid #dce7f3; position:relative}
 .box h6{ margin-bottom:0}
 .height1{height:98px;}
-.height2{height:426px;}
+.height2{height:424px;}
 .box h5.title-1,.box h6.title-1{background-position: right -52px}
 .box h5.title-2,.box h6.title-2{background-position: right -100px}
 .box h5.title-2 span.tab{float:right; padding-right:6px; color:#a4bcd6}
 .box h5.title-2 span.tab span{ color:#2064ae;cursor: hand;!important;cursor: pointer}
+.textaligncenter{text-align: center;}
+.nav-box{zoom:1; overflow:auto; padding-bottom:10px}
+.snheader{height:32px; background: url(../images/subNavHd.png) no-repeat; color: white; font-size: 14px; font-weight: 700;line-height: 32px;}
+.snbody{ background:#f3f1f1; border:1px solid #a5e4ff; border-width:0 1px; padding-top:8px;}
+.snbody ul li{ width:210px; height:26px; overflow:hidden; margin:0 auto; line-height:26px; text-align:center; background:url(../images/subNavBg.png) 0 -48px no-repeat; padding:4px 0;}
+.snbody ul li.on{background:url(../images/subNavBg.png) 0 4px no-repeat;}
+.snbody ul li.on a{ font-weight:bold; color:#b12207;}
+.snfooter{ height:14px; overflow:hidden; background:url(../images/subNavBg.png) 0 -100px no-repeat; display:block;}
 .box a.more{ font-size:12px; font-family:"宋体"; margin-right:8px; font-weight:normal; color:white;  position:absolute;top:0; *top:1px;_top:1px; right:0}
 .box .content{ padding:0 10px; overflow:auto}
 
