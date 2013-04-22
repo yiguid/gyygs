@@ -29,19 +29,13 @@
         </div>
         <div class="bk10"></div>
         <div class="box">
-        		<h5>图片新闻</h5>
-          {pc:content  action="position" posid="12" thumb="1" order="listorder DESC" num="10"}
-            <ul class="content news-photo picbig">
-             {loop $data $r}
-            	<li>
-                    <div class="img-wrap">
-                        <a href="{$r[url]}" title="{$r[title]}"><img src="{thumb($r[thumb],110,0)}" title="{$r[title]}"/></a>
-                    </div>
-                    <a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],20)}</a>
-                </li>
-                {/loop}
-            </ul>
-            {/pc}
+        		<h5>公司介绍</h5>
+            <div>
+                公司简介：
+                    北京北航先进工业技术研究院有限公司成立于2010年11月，注册资本金5000万元，是北京航空航天大学委托北京北航资产经营有限公司独资设立的全资子公司。
+                核心优势：
+                    北京北航先进工业技术研究院有限公司以北航为主体、企业化运作，与北航民口科技管理部门、北航国家大学科技园三位一体支撑北京北航先进工业技术研究院的建设运行。北京北航先进工业技术研究院有限公司是北京北航先进工业技术研究院建设运行的企业实体，集合了北京航空航天大学的人才、科技、成果资源和北航国家大学科技园产学研合作基地、密云产业化基地以及公共服务平台资源，用专职专业的服务团队、提供优势的管理服务。
+            </div>
         </div>
         <div class="bk10"></div>
 		
@@ -140,17 +134,9 @@
         </div>
         <div class="bk10"></div>
 		<div class="box height3">
-        	<h5 class="title-2">其他资料</h5>
+        	<h5 class="title-2">展示图片</h5>
             <div class="content">
-            {pc:content action="category" catid="9" num="15" siteid="$siteid" order="listorder ASC"}
-			<ul class="list lh24 f14">
-			{loop $data $r}
-				<li>.
-					<a href="{$r[url]}">{$r[catname]}</a>
-				</li>
-			{/loop}
-			</ul>
-			{/pc}
+
             </div>
         </div>
         <div class="bk10"></div>
