@@ -76,10 +76,11 @@
              <div class="content">
             {pc:content action="category" catid="$r[catid]" num="15" siteid="$siteid" order="listorder ASC"}
 			<ul class="list lh24 f14">
+            {php $innernum=0}
 			{loop $data $lanmu}
-				<li>·
-					<a href="{$lanmu[url]}">{$lanmu[catname]}</a>
-				</li>
+                {php $innernum++}
+                    ·<a href="{$lanmu[url]}">{$lanmu[catname]}</a>&nbsp;&nbsp;&nbsp;
+				{if $innernum%2==0}<br>{/if}
 			{/loop}
 			</ul>
 			{/pc}
@@ -132,11 +133,8 @@
             </div>
         </div>
         <div class="bk10"></div>
-		<div class="box height3">
-        	<h5 class="title-2">展示图片</h5>
-            <div class="content">
-
-            </div>
+		<div class="box height3" style="border:0px;padding-bottom:0px;">
+        	<img src="{APP_PATH}statics/images/footpic.jpg" width="250" height="120"/>
         </div>
         <div class="bk10"></div>
     </div>
