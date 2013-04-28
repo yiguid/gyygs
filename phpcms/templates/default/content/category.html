@@ -1,94 +1,38 @@
 {template "content","header"}
 <!--main-->
 <div class="main">
-	<div class="col-left channel-hot">
-    	<div class="news-hot">
-        <div class="icon"></div>
-        	<div class="content">
-        	{pc:content  action="position" posid="10" catid="$catid" thumb="1" order="listorder DESC" num="2"}
-				{loop $data $v}
-				  <h4 class="blue"><a href="{$v[url]}" target="_blank"{title_style($v[style])}>{$v[title]}</a></h4>
-                <p><img src="{thumb($v[thumb],90,60)}" width="90" height="60" />{str_cut(strip_tags($v[description]), 160)}</p>
-                <div class="bk20 hr"><hr /></div>
-				{/loop}
-			{/pc}
-			{pc:content  action="lists" catid="$catid" order="id DESC" num="3"}
-                <ul class="list">
-                {loop $data $k $v}
-                	<li>·<a href="{$v[url]}" title="{$v[title]}" target="_blank"{title_style($v[style])}>{str_cut($v[title], 30)}</a></li>
-                {/loop}
+    <div class="col-left-min">
+        <div class="nav-box">
+            {if $top_parentid}
+            <div class="snheader textaligncenter">{$CATEGORYS[$top_parentid][catname]} </div>
+            <div class="snbody">
+                <ul>
+                {pc:content action="category" catid="$top_parentid" num="15" siteid="$siteid" order="listorder ASC"}
+                    {loop $data $r}
+                    <li class="left-subnav">
+                    <a href="{$r[url]}">{$r[catname]}</a>
+                    </li>
+                    {/loop}
+                {/pc}
                 </ul>
-             {/pc}
+            {/if}
+            </div>
+            <div class="snfooter">
             </div>
         </div>
+        <div class="bk10"></div>
     </div>
-    
-    
-    <div class="col-auto channel-slide">
-    {pc:content  action="lists" catid="$catid" order="listorder ASC" thumb="1" num="5"}
-  		<ul class="thumb">
-  		{loop $data $k $v}
-        	<li {if $n==1}class="on" style="margin:0"{/if}><a href="{$v[url]}"><img src="{thumb($v[thumb], 82, 50)}"  alt="{$v[title]}" width="82" height="50" /><div class="icon"></div></a></li>
+    <div class="col-right">
+        <div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)} </div>
+        {pc:content action="lists" catid="$catid" num="25" order="id DESC" page="$page"}
+        <ul class="list lh24 f14">
+        {loop $data $r}
+            <li><span class="rt">{date('Y-m-d H:i:s',$r[inputtime])}</span>·<a href="{$r[url]}" target="_blank"{title_style($r[style])}>{$r[title]}</a></li>
+            {if $n%5==0}<li class="bk20 hr"></li>{/if}
         {/loop}
-        </ul>
-        <div class="col-auto">
-            <ul class="photo">
-            {loop $data $k $v}
-                <li><a href="{$v[url]}" title="{$v[title]}"><img src="{thumb($v[thumb], 398, 234)}" width="398" height="234" alt="{$v[title]}" /></a></li>
-            {/loop}
-            </ul>
-            <div class="title">
-            {loop $data $k $v}
-              <p  {if $n==1}style="display:block"{/if}><strong><a href="{$v[url]}" title="{$v[title]}" class="blue"{title_style($v[style])}>{str_cut($v[title], 36)}</a></strong><br />{str_cut(strip_tags($v[description]), 62)}</p>
-            {/loop}
-          </div>
-        </div>
-         {/pc}
-    </div>
-   
-	<div class="col-left">
-	{php $j=1;}
-	{loop subcat($catid) $v}
-	{php if($v['type']!=0) continue;}
-        <div class="box cat-area" {if $j%2==1}style="margin-right:10px"{/if}>
-        		<h5 class="title-1">{$v[catname]}<a href="{$v[url]}" class="more">更多>></a></h5>
-             <div class="content">
-             	
-				{pc:content action="lists" catid="$v[catid]" thumb="1" num="1" order="id DESC"}
-				<p>
-					{loop $data $v}
-						<a href="{$v[url]}" target="_blank"><img src="{thumb($v[thumb],70,60)}" width="70" height="60"/></a>
-						<strong><a href="{$v[url]}" target="_blank" title="{$v[title]}"{title_style($v[style])}>{str_cut($v[title], 30)}</a></strong><br />{str_cut($v[description],116,'..')}
-					{/loop}
-					</p>
-				{/pc}
-                
-                <div class="bk15 hr"></div>
-                <ul class="list  lh24 f14">
-                {pc:content action="lists" catid="$v[catid]" num="5" order="id DESC"}
-					{loop $data $v}
-						<li><a href="{$v[url]}" target="_blank"{title_style($v[style])}>{$v[title]}</a></li>
-					{/loop}
-				{/pc}
                 </ul>
-            </div>
-        </div>
-        {if $j%2==0}<div class="bk10"></div>{/if}
-	{$j++}
-	{/loop}
-  </div>
-    <div class="col-auto">
-        
-    </div>
+                <div id="pages" class="text-c">{$pages}</div>
+        {/pc}
+    </div>    
 </div>
-<script type="text/javascript">
-function ChannelSlide(Name,Class){
-	$(Name+' ul.photo li').sGallery({
-		titleObj:Name+' div.title p',
-		thumbObj:Name+' .thumb li',
-		thumbNowClass:Class
-	});
-}
-new ChannelSlide(".channel-slide","on",311,260);
-</script>
 {template "content","footer"}

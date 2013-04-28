@@ -23,20 +23,31 @@
 .footer p.info a{color:#666;}
 </style>
 <div id="content">
+	{php $fid=0}
 	<div class="col-left left-nav">
     	<h1>{$catname}</h1>
     	<ul class="content">
-        	{loop $arrchild_arr $cid}
-                <li{if $catid==$cid} class="cur"{/if}><a href="{$CATEGORYS[$cid][url]}">{$CATEGORYS[$cid][catname]}</a></li>
+		{pc:content action="category" catid="$catid" num="15" siteid="$siteid" order="listorder ASC"}
+        	{loop $data $cid}
+                <li{if $fid==0} 
+				{php $fid=$cid[catid]}
+				class="cur"
+				{/if}>
+				<a href="{$cid[url]}">{$cid[catname]}</a></li>
 			{/loop}
+		{/pc}
         </ul>
         <div class="bottom"></div>
     </div>
   <div class="col-auto">
-    	<h1 class="title">{$title}</h1>
+  {pc:get sql="SELECT * FROM bh_page where catid=$fid"}
+		{loop $data $key $val}
+        <h1 class="title">{$val[title]}</h1>
         <div class="content">
-        	    {$content}
+        	    {$val[content]}
         </div>
+		{/loop}
+	{/pc}
     </div>
  </div>
 {template "content","footer"}
