@@ -1,10 +1,14 @@
 {template "content","header"}
 <!--main-->
 <div class="main">
+    <div class="category_banner">
+        <img src="{APP_PATH}statics/images/category_banner{$top_parentid}.png" width="960px" height="260px"/>
+    </div>
+    <div class="bk10"></div>
     <div class="col-left-min">
         <div class="nav-box">
             {if $top_parentid}
-            <div class="snheader textaligncenter">{$CATEGORYS[$top_parentid][catname]} </div>
+            <div class="snheader textaligncenter">{$CATEGORYS[$catid][catname]}</div>
             <div class="snbody">
                 <ul>
                 {pc:content action="category" catid="$top_parentid" num="15" siteid="$siteid" order="listorder ASC"}

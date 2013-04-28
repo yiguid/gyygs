@@ -7,7 +7,7 @@
 .log a{color:#6f6f6f;text-decoration: none;}
 .log a:hover{text-decoration: underline;}
 #header .content{width:880px; margin:auto; height:60px;padding:10px 0 0 0}
-#content{width:920px; margin:auto; padding:14px 0 0 0}
+#content{width:920px; min-height:400px; margin:auto; padding:14px 0 0 0}
 .left-nav{width:210px; height:399px; padding-top:10px}
 .left-nav h1,.left-nav .content li,.left-nav .content li.cur a,.left-nav .bottom{background: url({IMG_PATH}v9/about_left.png) no-repeat right top}
 .left-nav h1{display:block; height:40px; overflow:hidden; font-size:20px;padding-left:58px;}
@@ -22,6 +22,9 @@
 .footer{color:#666; line-height:24px;width:920px; margin:auto; text-align:center; padding:12px 0; margin-top:52px; border-top:1px solid #e5e5e5}
 .footer p.info a{color:#666;}
 </style>
+    <div class="main category_banner">
+    <img src="{APP_PATH}statics/images/category_banner{$catid}.png" width="960px" height="260px"/>
+    </div>
 <div id="content">
 	{php $fid=0}
 	<div class="col-left left-nav">
