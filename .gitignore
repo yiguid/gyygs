@@ -180,5 +180,6 @@ phpcms/languages
 phpcms/libs
 phpcms/model
 phpcms/modules
+!phpcms/modules/admin/templates
 phpcms/plugin
 phpcms/base.php
