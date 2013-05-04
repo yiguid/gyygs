@@ -68,9 +68,10 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 .main .col-right{width:700px; margin-left:10px;float:left;}
 .news-hot{background: url(../images/v9/hot_bg.png) no-repeat;float:right; width:380px; margin-right:9px;}
 .main .col-left .col-left-min .col-right {overflow:hidden;_float:left;zoom:1}
-.slide{height:289px;padding:10px 10px 0 0;overflow:hidden;_float:right;zoom:1}
+.slide{height:290px;padding:10px 10px 0 0;overflow:hidden;_float:right;zoom:1}
 .category_banner{width:960px;height:260px;}
-
+.intro_list{height:138px;}
+.intro_pic{float:left;width:200px;height:130px; margin:0 0 0 22px;}
 
 /* 通用容器 */
 .box{border:1px solid #c3d4e7;zoom:1; overflow:auto; padding-bottom:10px}

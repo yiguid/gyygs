@@ -7,7 +7,7 @@
         	{pc:content  action="position" posid="2" order="listorder DESC" num="3"}
         	 {loop $data $r}
                 <h4 class="blue"><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],36,'')}</a></h4>
-                <p>{if $n==1}<img src="{thumb($r[thumb],90,60)}" width="90" height="60"/>{/if}{str_cut($r[description],112)}</p>
+                <p>{if $n==1}<img src="{thumb($r[thumb],90,60)}" width="90" height="60"/>{str_cut($r[description],300)}{/if}{if $n!=1}{str_cut($r[description],90)}{/if}</p>
                 <div class="bk20 hr"><hr /></div>
                {/loop}  
              {/pc}   
@@ -28,12 +28,23 @@
             <div class="bk10"></div>
         </div>
         <div class="box">
-        		<h5>公司介绍</h5>
+        		<h5>机构简介</h5>
             <div style="margin:10px;">
                 <span style="font-weight:bold;">公司简介：</span>
                     北京北航先进工业技术研究院有限公司成立于2010年11月，注册资本金5000万元，是北京航空航天大学委托北京北航资产经营有限公司独资设立的全资子公司。
                 <br><span style="font-weight:bold;">核心优势：</span>
                     北京北航先进工业技术研究院有限公司以北航为主体、企业化运作，与北航民口科技管理部门、北航国家大学科技园三位一体支撑北京北航先进工业技术研究院的建设运行。北京北航先进工业技术研究院有限公司是北京北航先进工业技术研究院建设运行的企业实体，集合了北京航空航天大学的人才、科技、成果资源和北航国家大学科技园产学研合作基地、密云产业化基地以及公共服务平台资源，用专职专业的服务团队、提供优势的管理服务。
+            </div>
+            <div class="intro_list">
+                <div class="intro_pic">
+                    <img src="{APP_PATH}statics/images/intro_pic.jpg" width="200" height="130"/>
+                </div>
+                <div class="intro_pic">
+                    <img src="{APP_PATH}statics/images/intro_pic.jpg" width="200" height="130"/>
+                </div>
+                <div class="intro_pic">
+                    <img src="{APP_PATH}statics/images/intro_pic.jpg" width="200" height="130"/>
+                </div>
             </div>
         </div>
         <div class="bk10"></div>
@@ -67,7 +78,7 @@
 		
         {loop subcat(0,0,0,$siteid) $r}
         {php $num++}
-		{if $r[catid]==7 or $r[catid]==9 or $r[catid]==10 or $r[catid]==17}
+		{if $r[catid]!=11 and $r[catid]!=12}
 		{php $num--}
 		{php continue}
 		{/if}
@@ -91,7 +102,7 @@
     </div>
     <div class="col-auto">
     	<div class="box">
-        	 <h5 class="title-2">公告<a href="" class="more">&nbsp;</a></h5>
+        	 <h5 class="title-2">通知通告<a href="" class="more">&nbsp;</a></h5>
              <div class="content">
                 {pc:announce  action="lists" siteid="$siteid" num="5"}
                 <ul class="list lh24 f14">
@@ -132,11 +143,6 @@
 			{/pc}
             </div>
         </div>
-        <div class="bk10"></div>
-		<div class="box height3" style="border:0px;padding-bottom:0px;">
-        	<img src="{APP_PATH}statics/images/footpic.jpg" width="250" height="120"/>
-        </div>
-        <div class="bk10"></div>
     </div>
     <div class="bk10"></div>
 	
