@@ -11,6 +11,39 @@
 <script type="text/javascript" src="http://localhost/gyygs/statics/js/jquery.min.js"></script>
 <script type="text/javascript" src="http://localhost/gyygs/statics/js/jquery.sgallery.js"></script>
 <script type="text/javascript" src="http://localhost/gyygs/statics/js/search_common.js"></script>
+<script type="text/javascript">
+var timeout = 100;
+var closetimer = 0;
+var id = 0;
+
+function canceltimer()
+{	if(closetimer)
+	{	window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+function hideli(){
+	if(id) 
+		id.css('visibility', 'hidden');
+}
+
+function showSubnav(){
+	canceltimer();
+	hideli();
+	id = $(this).find('ul').eq(0).css('visibility', 'visible');
+}
+
+function hideSubnav(){
+	closetimer = window.setTimeout(hideli, timeout);
+}
+
+$(document).ready(function()
+{	$('.nav-site > li').bind('mouseover', showSubnav);
+	$('.nav-site > li').bind('mouseout',  hideSubnav);
+});
+
+</script>
 </head>
 <body>
 <div class="body-top">
@@ -26,28 +59,71 @@
     	<map>
     	        	<ul class="nav-site">
 			<li><a href="http://localhost/gyygs"><span>首页</span></a></li>
-						<li class="line">|</li>
-			<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=6"><span>机构简介</span></a></li>
-						<li class="line">|</li>
-			<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=7"><span>工作动态</span></a></li>
-						<li class="line">|</li>
-			<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=9"><span>服务平台</span></a></li>
-						<li class="line">|</li>
-			<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=10"><span>科技资源</span></a></li>
-						<li class="line">|</li>
-			<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=11"><span>产学研合作</span></a></li>
-						<li class="line">|</li>
-			<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=12"><span>业务板块</span></a></li>
-						<li class="line">|</li>
-			<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=37"><span>政策文件</span></a></li>
-						<li class="line">|</li>
-			<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=14"><span>联系我们</span></a></li>
+									<li class="line">|</li>
+			<li>
+				<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=6"><span>机构简介</span></a>
+			    	<ul id="subnav1" class="subnav">
+														        			    	</ul>
+			</li>
+									<li class="line">|</li>
+			<li>
+				<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=7"><span>工作动态</span></a>
+			    	<ul id="subnav2" class="subnav">
+														        			    	</ul>
+			</li>
+									<li class="line">|</li>
+			<li>
+				<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=9"><span>服务平台</span></a>
+			    	<ul id="subnav3" class="subnav">
+																	<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=9">首都科技条件平台</a></li><br>
+												<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=9">技术转移平台</a></li><br>
+												<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=9">行业创新联盟</a></li><br>
+												<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=9">创新企业培育平台</a></li><br>
+												<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=9">创投管理</a></li><br>
+									        			    	</ul>
+			</li>
+									<li class="line">|</li>
+			<li>
+				<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=10"><span>科技资源</span></a>
+			    	<ul id="subnav4" class="subnav">
+																	<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=10">科技成果</a></li><br>
+												<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=10">科技人才</a></li><br>
+									        			    	</ul>
+			</li>
+									<li class="line">|</li>
+			<li>
+				<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=11"><span>产学研合作</span></a>
+			    	<ul id="subnav5" class="subnav">
+																	<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=11">企业合作</a></li><br>
+												<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=11">区域合作</a></li><br>
+									        			    	</ul>
+			</li>
+									<li class="line">|</li>
+			<li>
+				<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=12"><span>业务板块</span></a>
+			    	<ul id="subnav6" class="subnav">
+																	<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=12">工业仪表事业部</a></li><br>
+												<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=12">虚拟仿真事业部</a></li><br>
+												<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=12">飞行模拟器事业部</a></li><br>
+												<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=12">适航认证事业部</a></li><br>
+												<li><a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=12">通用航空事业部</a></li><br>
+									        			    	</ul>
+			</li>
+									<li class="line">|</li>
+			<li>
+				<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=37"><span>政策文件</span></a>
+			    	<ul id="subnav7" class="subnav">
+														        			    	</ul>
+			</li>
+									<li class="line">|</li>
+			<li>
+				<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=14"><span>联系我们</span></a>
+			    	<ul id="subnav8" class="subnav">
+														        			    	</ul>
+			</li>
 			            </ul>
         		        </map>
     </div> 
-<!--
-	显示子栏目	
-	-->
 </div>
 </div><!--main-->
 <div class="main">
@@ -89,17 +165,19 @@
                 <br><span style="font-weight:bold;">核心优势：</span>
                     北京北航先进工业技术研究院有限公司以北航为主体、企业化运作，与北航民口科技管理部门、北航国家大学科技园三位一体支撑北京北航先进工业技术研究院的建设运行。北京北航先进工业技术研究院有限公司是北京北航先进工业技术研究院建设运行的企业实体，集合了北京航空航天大学的人才、科技、成果资源和北航国家大学科技园产学研合作基地、密云产业化基地以及公共服务平台资源，用专职专业的服务团队、提供优势的管理服务。
             </div>
+            <!--
             <div class="intro_list">
                 <div class="intro_pic">
-                    <img src="http://localhost/gyygs/statics/images/intro_pic.jpg" width="200" height="130"/>
+                    <img src="http://localhost/gyygs/statics/images/intro_pic1.jpg" width="200" height="130"/>
                 </div>
                 <div class="intro_pic">
-                    <img src="http://localhost/gyygs/statics/images/intro_pic.jpg" width="200" height="130"/>
+                    <img src="http://localhost/gyygs/statics/images/intro_pic2.jpg" width="200" height="130"/>
                 </div>
                 <div class="intro_pic">
-                    <img src="http://localhost/gyygs/statics/images/intro_pic.jpg" width="200" height="130"/>
+                    <img src="http://localhost/gyygs/statics/images/intro_pic3.jpg" width="200" height="130"/>
                 </div>
             </div>
+            -->
         </div>
         <div class="bk10"></div>
 		
@@ -143,13 +221,13 @@
 		<div class="box height1">
         	<h5 class="title-2">科技资源</h5>
             <div class="content">
-            							<div class="kejiziyuan">
-					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=35">科技成果</a>
-					<img src="http://localhost/gyygs/statics/images/sp1.jpg" width="100" height="40"/>
+            			            				<div class="kejiziyuan">
+					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=35">科技成果					<img src="http://localhost/gyygs/statics/images/ziyuan1.jpg" width="100" height="40"/>
+                </a>
 				</div>
-							<div class="kejiziyuan">
-					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=36">科技人才</a>
-					<img src="http://localhost/gyygs/statics/images/sp1.jpg" width="100" height="40"/>
+			            				<div class="kejiziyuan">
+					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=36">科技人才					<img src="http://localhost/gyygs/statics/images/ziyuan2.jpg" width="100" height="40"/>
+                </a>
 				</div>
 						            </div>
         </div>
@@ -158,28 +236,28 @@
         	<h5 class="title-2">服务平台</h5>
             <div class="content">
             										<div class="service-platform">
-					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=21">首都科技条件平台<br/>
-					<img src="http://localhost/gyygs/statics/images/sp1.jpg"/>
+					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=21">-- 首都科技条件平台 --<br/>
+					<!--<img src="http://localhost/gyygs/statics/images/pingtai1.jpg"/>-->
 					</a>
 				</div>
 										<div class="service-platform">
-					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=22">技术转移平台<br/>
-					<img src="http://localhost/gyygs/statics/images/sp1.jpg"/>
+					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=22">-- 技术转移平台 --<br/>
+					<!--<img src="http://localhost/gyygs/statics/images/pingtai2.jpg"/>-->
 					</a>
 				</div>
 										<div class="service-platform">
-					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=23">行业创新联盟<br/>
-					<img src="http://localhost/gyygs/statics/images/sp1.jpg"/>
+					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=23">-- 行业创新联盟 --<br/>
+					<!--<img src="http://localhost/gyygs/statics/images/pingtai3.jpg"/>-->
 					</a>
 				</div>
 										<div class="service-platform">
-					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=24">创新企业培育平台<br/>
-					<img src="http://localhost/gyygs/statics/images/sp1.jpg"/>
+					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=24">-- 创新企业培育平台 --<br/>
+					<!--<img src="http://localhost/gyygs/statics/images/pingtai4.jpg"/>-->
 					</a>
 				</div>
 										<div class="service-platform">
-					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=25">创投管理<br/>
-					<img src="http://localhost/gyygs/statics/images/sp1.jpg"/>
+					<a href="http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=25">-- 创投管理 --<br/>
+					<!--<img src="http://localhost/gyygs/statics/images/pingtai5.jpg"/>-->
 					</a>
 				</div>
 						            </div>

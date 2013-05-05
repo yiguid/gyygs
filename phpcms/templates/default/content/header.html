@@ -11,6 +11,39 @@
 <script type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
 <script type="text/javascript" src="{JS_PATH}jquery.sgallery.js"></script>
 <script type="text/javascript" src="{JS_PATH}search_common.js"></script>
+<script type="text/javascript">
+var timeout = 100;
+var closetimer = 0;
+var id = 0;
+
+function canceltimer()
+{	if(closetimer)
+	{	window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+function hideli(){
+	if(id) 
+		id.css('visibility', 'hidden');
+}
+
+function showSubnav(){
+	canceltimer();
+	hideli();
+	id = $(this).find('ul').eq(0).css('visibility', 'visible');
+}
+
+function hideSubnav(){
+	closetimer = window.setTimeout(hideli, timeout);
+}
+
+$(document).ready(function()
+{	$('.nav-site > li').bind('mouseover', showSubnav);
+	$('.nav-site > li').bind('mouseout',  hideSubnav);
+});
+
+</script>
 </head>
 <body>
 <div class="body-top">
@@ -28,25 +61,23 @@
         	<ul class="nav-site">
 			<li><a href="{siteurl($siteid)}"><span>首页</span></a></li>
 			{loop $data $r}
+			{php $num++}
 			<li class="line">|</li>
-			<li><a href="{$r[url]}"><span>{$r[catname]}</span></a></li>
+			<li>
+				<a href="{$r[url]}"><span>{$r[catname]}</span></a>
+			    	<ul id="subnav{$num}" class="subnav">
+					{pc:content action="category" catid="$r[catid]" num="15" siteid="$siteid" order="listorder ASC"}
+						{loop $data $r2}
+						<li><a href="{$r[url]}">{$r2[catname]}</a></li><br>
+						{/loop}
+			        {/pc}
+			    	</ul>
+			</li>
 			{/loop}
             </ul>
         {/pc}
 		{php echo runhook('glogal_menu')}
         </map>
     </div> 
-<!--
-	显示子栏目	
-	{if $top_parentid}
-    <div class="subnav">
-		{pc:content action="category" catid="$top_parentid" num="15" siteid="$siteid" order="listorder ASC"}
-			{loop $data $r}
-			<a href="{$r[url]}">{$r[catname]}</a><span> | </span>
-			{/loop}
-        {/pc}
-    </div>
-	{/if}
--->
 </div>
 </div>

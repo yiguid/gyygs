@@ -52,13 +52,26 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 
 /* 导航 */
 .header .nav-bar{clear:both; height:33px}
-.header .nav-bar,.header .nav-bar map,.header .nav-site,.header .nav-site li.line,.header .subnav{background: url(../images/v9/nav.png) no-repeat}
+.header .nav-bar,.header .nav-bar map,.header .nav-site,.header .nav-site li.line{background: url(../images/v9/nav.png) no-repeat}
 .header .nav-bar map{background-position: right -130px; display:block}
 .header .nav-site{height:33px;background-position: left -65px;background-repeat: repeat-x; margin:0 5px; padding-left:5px}
 .header .nav-site li{float:left; height:33px; line-height:33px; padding:0 5px; }
 .header .nav-site li a{color:#fff; font-size:14px; font-weight:700;*display:block}
 .header .nav-site li.line{background-position: 2px -215px; padding:0; width:10px; text-indent:-10000px}
-.header .subnav{ padding-left:16px; border-left:1px solid #d2dfed;border-right:1px solid #d2dfed;background-position: left -33px;background-repeat: repeat-x; height:32px; line-height:32px}
+.header .subnav{ 
+	padding:0 16px 0 16px; 
+	background-color: #2374ea;
+	border-left:1px solid #d2dfed;
+	border-right:1px solid #d2dfed;
+	background-position: left -33px;
+	background-repeat: repeat-x; 
+	line-height:32px;
+	visibility: hidden;
+	position: absolute; 
+	z-index:3;
+}
+
+
 .header .subnav a{ color:#004499}
 .header .subnav span{ padding:0 3px; color:#c8d8e9;}
 /* main style */
@@ -78,7 +91,7 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 .box h5,.box h6{background: url(../images/v9/title.png) no-repeat right top;color:white; height:26px; margin-bottom:10px; line-height:26px; padding-left:10px;border-bottom:1px solid #dce7f3; position:relative}
 .box h6{ margin-bottom:0}
 .height1{height:98px;}
-.height2{height:424px;}
+.height2{height:286px;}
 .box h5.title-1,.box h6.title-1{background-position: right -52px}
 .box h5.title-2,.box h6.title-2{background-position: right -100px}
 .box h5.title-2 span.tab{float:right; padding-right:6px; color:#a4bcd6}
@@ -96,7 +109,9 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 
 /* 右侧栏目图文样式*/
 .service-platform{
-	height:74px;
+	font-size: 16px;
+	height:46px;
+	line-height: 46px;
 	margin-bottom:2px;
 	border-bottom:1px solid #ccc;
 	text-align:center;
