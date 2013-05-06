@@ -68,7 +68,7 @@ $(document).ready(function()
 			    	<ul id="subnav{$num}" class="subnav">
 					{pc:content action="category" catid="$r[catid]" num="15" siteid="$siteid" order="listorder ASC"}
 						{loop $data $r2}
-						<li><a href="{$r[url]}">{$r2[catname]}</a></li><br>
+						<li><a href="{$r2[url]}">{$r2[catname]}</a></li><br>
 						{/loop}
 			        {/pc}
 			    	</ul>
