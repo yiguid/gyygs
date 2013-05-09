@@ -30,9 +30,7 @@ class index extends admin {
 			//不为口令卡验证
 			if (!isset($_GET['card'])) {
 				$username = isset($_POST['username']) ? trim($_POST['username']) : showmessage(L('nameerror'),HTTP_REFERER);
-				$code = isset($_POST['code']) && trim($_POST['code']) ? trim($_POST['code']) : showmessage(L('input_code'), HTTP_REFERER);
 				if ($_SESSION['code'] != strtolower($code)) {
-					showmessage(L('code_error'), HTTP_REFERER);
 				}
 			} else { //口令卡验证
 				if (!isset($_SESSION['card_verif']) || $_SESSION['card_verif'] != 1) {

@@ -7,9 +7,6 @@
 -- 服务器版本: 5.5.29-log
 -- PHP 版本: 5.4.10
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
 --
 -- 数据库: `gyygs`
 --
@@ -34,7 +31,7 @@ CREATE TABLE `bh_admin` (
   `lang` varchar(6) NOT NULL,
   PRIMARY KEY (`userid`),
   KEY `username` (`username`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+)    AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `bh_admin`
@@ -57,7 +54,7 @@ CREATE TABLE `bh_admin_panel` (
   `url` char(255) DEFAULT NULL,
   `datetime` int(10) unsigned DEFAULT '0',
   UNIQUE KEY `userid` (`menuid`,`userid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -74,7 +71,7 @@ CREATE TABLE `bh_admin_role` (
   PRIMARY KEY (`roleid`),
   KEY `listorder` (`listorder`),
   KEY `disabled` (`disabled`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+)    AUTO_INCREMENT=8 ;
 
 --
 -- 转存表中的数据 `bh_admin_role`
@@ -102,7 +99,7 @@ CREATE TABLE `bh_admin_role_priv` (
   `data` char(30) NOT NULL DEFAULT '',
   `siteid` smallint(5) unsigned NOT NULL DEFAULT '0',
   KEY `roleid` (`roleid`,`m`,`c`,`a`,`siteid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 --
 -- 转存表中的数据 `bh_admin_role_priv`
@@ -227,7 +224,7 @@ CREATE TABLE `bh_announce` (
   `show_template` char(30) NOT NULL,
   PRIMARY KEY (`aid`),
   KEY `siteid` (`siteid`,`passed`,`endtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+)    AUTO_INCREMENT=7 ;
 
 --
 -- 转存表中的数据 `bh_announce`
@@ -266,7 +263,7 @@ CREATE TABLE `bh_attachment` (
   `siteid` smallint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`aid`),
   KEY `authcode` (`authcode`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+)    AUTO_INCREMENT=19 ;
 
 --
 -- 转存表中的数据 `bh_attachment`
@@ -300,7 +297,7 @@ CREATE TABLE `bh_attachment_index` (
   `aid` char(10) NOT NULL,
   KEY `keyid` (`keyid`),
   KEY `aid` (`aid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 --
 -- 转存表中的数据 `bh_attachment_index`
@@ -330,7 +327,7 @@ CREATE TABLE `bh_badword` (
   UNIQUE KEY `badword` (`badword`),
   KEY `usetimes` (`replaceword`,`listorder`),
   KEY `hits` (`listorder`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -350,7 +347,7 @@ CREATE TABLE `bh_block` (
   KEY `pos` (`pos`),
   KEY `type` (`type`),
   KEY `siteid` (`siteid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -366,7 +363,7 @@ CREATE TABLE `bh_block_history` (
   `userid` mediumint(8) unsigned DEFAULT '0',
   `username` char(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -382,7 +379,7 @@ CREATE TABLE `bh_block_priv` (
   PRIMARY KEY (`id`),
   KEY `blockid` (`blockid`),
   KEY `roleid` (`roleid`,`siteid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -395,7 +392,7 @@ CREATE TABLE `bh_cache` (
   `path` char(50) NOT NULL,
   `data` mediumtext NOT NULL,
   PRIMARY KEY (`filename`,`path`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 --
 -- 转存表中的数据 `bh_cache`
@@ -404,8 +401,8 @@ CREATE TABLE `bh_cache` (
 INSERT INTO `bh_cache` (`filename`, `path`, `data`) VALUES
 ('mood_program.cache.php', 'caches_commons/caches_data/', '<?php\nreturn array (\n  1 => \n  array (\n    1 => \n    array (\n      ''use'' => ''1'',\n      ''name'' => ''震惊'',\n      ''pic'' => ''mood/a1.gif'',\n    ),\n    2 => \n    array (\n      ''use'' => ''1'',\n      ''name'' => ''不解'',\n      ''pic'' => ''mood/a2.gif'',\n    ),\n    3 => \n    array (\n      ''use'' => ''1'',\n      ''name'' => ''愤怒'',\n      ''pic'' => ''mood/a3.gif'',\n    ),\n    4 => \n    array (\n      ''use'' => ''1'',\n      ''name'' => ''杯具'',\n      ''pic'' => ''mood/a4.gif'',\n    ),\n    5 => \n    array (\n      ''use'' => ''1'',\n      ''name'' => ''无聊'',\n      ''pic'' => ''mood/a5.gif'',\n    ),\n    6 => \n    array (\n      ''use'' => ''1'',\n      ''name'' => ''高兴'',\n      ''pic'' => ''mood/a6.gif'',\n    ),\n    7 => \n    array (\n      ''use'' => ''1'',\n      ''name'' => ''支持'',\n      ''pic'' => ''mood/a7.gif'',\n    ),\n    8 => \n    array (\n      ''use'' => ''1'',\n      ''name'' => ''超赞'',\n      ''pic'' => ''mood/a8.gif'',\n    ),\n    9 => \n    array (\n      ''use'' => NULL,\n      ''name'' => '''',\n      ''pic'' => '''',\n    ),\n    10 => \n    array (\n      ''use'' => NULL,\n      ''name'' => '''',\n      ''pic'' => '''',\n    ),\n  ),\n);\n?>'),
 ('category_content.cache.php', 'caches_commons/caches_data/', '<?php\nreturn array (\n  18 => ''1'',\n  19 => ''1'',\n  20 => ''1'',\n  6 => ''1'',\n  7 => ''1'',\n  9 => ''1'',\n  10 => ''1'',\n  11 => ''1'',\n  12 => ''1'',\n  37 => ''1'',\n  14 => ''1'',\n  17 => ''1'',\n  21 => ''1'',\n  22 => ''1'',\n  23 => ''1'',\n  24 => ''1'',\n  25 => ''1'',\n  29 => ''1'',\n  28 => ''1'',\n  32 => ''1'',\n  31 => ''1'',\n  30 => ''1'',\n  33 => ''1'',\n  34 => ''1'',\n  35 => ''1'',\n  36 => ''1'',\n);\n?>'),
-('category_content_1.cache.php', 'caches_commons/caches_data/', '<?php\nreturn array (\n  18 => \n  array (\n    ''catid'' => ''18'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''17'',\n    ''arrparentid'' => ''0,17'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''18'',\n    ''catname'' => ''关于我们'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''about/'',\n    ''catdir'' => ''guanyuwomen'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=18'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''1'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''guanyuwomen'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  19 => \n  array (\n    ''catid'' => ''19'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''17'',\n    ''arrparentid'' => ''0,17'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''19'',\n    ''catname'' => ''招贤纳士'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''about/'',\n    ''catdir'' => ''zhaoxiannashi'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=19'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''2'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''zhaoxiannashi'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  20 => \n  array (\n    ''catid'' => ''20'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''17'',\n    ''arrparentid'' => ''0,17'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''20'',\n    ''catname'' => ''联系我们'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''about/'',\n    ''catdir'' => ''lianxiwomen'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=20'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''3'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''lianxiwomen'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  6 => \n  array (\n    ''catid'' => ''6'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''6'',\n    ''catname'' => ''机构简介'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''jigou'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=6'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''6'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''jigoujianjie'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  7 => \n  array (\n    ''catid'' => ''7'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''7'',\n    ''catname'' => ''工作动态'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''xinwen'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=7'',\n    ''items'' => ''1'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''7'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''gongzuodongtai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  9 => \n  array (\n    ''catid'' => ''9'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''1'',\n    ''arrchildid'' => ''9,21,22,23,24,25'',\n    ''catname'' => ''服务平台'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''fuwu'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=9'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category_page\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''9'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''fuwupingtai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  10 => \n  array (\n    ''catid'' => ''10'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''1'',\n    ''arrchildid'' => ''10,35,36'',\n    ''catname'' => ''科技资源'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''keji'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=10'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category_page\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''10'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''kejiziyuan'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  11 => \n  array (\n    ''catid'' => ''11'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''1'',\n    ''arrchildid'' => ''11,33,34'',\n    ''catname'' => ''产学研合作'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''chanxueyan'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=11'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category_page\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''11'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''chanxueyanhezuo'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  12 => \n  array (\n    ''catid'' => ''12'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''1'',\n    ''arrchildid'' => ''12,29,28,32,31,30'',\n    ''catname'' => ''业务板块'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''yewu'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=12'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category_page\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''12'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''yewubankuai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  37 => \n  array (\n    ''catid'' => ''37'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''37'',\n    ''catname'' => ''政策文件'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''zhengce'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=37'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''13'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''zhengcewenjian'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  14 => \n  array (\n    ''catid'' => ''14'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''14'',\n    ''catname'' => ''联系我们'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''lianxi'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=14'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''14'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''lianxiwomen'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  17 => \n  array (\n    ''catid'' => ''17'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''1'',\n    ''arrchildid'' => ''17,18,19,20'',\n    ''catname'' => ''关于我们'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''about'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=17'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''17'',\n    ''ismenu'' => ''0'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''guanyuwomen'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  21 => \n  array (\n    ''catid'' => ''21'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''9'',\n    ''arrparentid'' => ''0,9'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''21'',\n    ''catname'' => ''首都科技条件平台'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''fuwu/'',\n    ''catdir'' => ''shoudukejitiaojianpingtai'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=21'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''21'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''shoudukejitiaojianpingtai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  22 => \n  array (\n    ''catid'' => ''22'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''9'',\n    ''arrparentid'' => ''0,9'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''22'',\n    ''catname'' => ''技术转移平台'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''fuwu/'',\n    ''catdir'' => ''jishuzhuanyipingtai'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=22'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''22'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''jishuzhuanyipingtai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  23 => \n  array (\n    ''catid'' => ''23'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''9'',\n    ''arrparentid'' => ''0,9'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''23'',\n    ''catname'' => ''行业创新联盟'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''fuwu/'',\n    ''catdir'' => ''xingyechuangxinlianmeng'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=23'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''23'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''xingyechuangxinlianmeng'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  24 => \n  array (\n    ''catid'' => ''24'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''9'',\n    ''arrparentid'' => ''0,9'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''24'',\n    ''catname'' => ''创新企业培育平台'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''fuwu/'',\n    ''catdir'' => ''chuangxinqiyepeiyupingtai'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=24'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''24'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''chuangxinqiyepeiyupingtai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  25 => \n  array (\n    ''catid'' => ''25'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''9'',\n    ''arrparentid'' => ''0,9'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''25'',\n    ''catname'' => ''创投管理'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''fuwu/'',\n    ''catdir'' => ''chuangtouguanli'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=25'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''25'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''chuangtouguanli'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  29 => \n  array (\n    ''catid'' => ''29'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''12'',\n    ''arrparentid'' => ''0,12'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''29'',\n    ''catname'' => ''工业仪表事业部'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''yewu/'',\n    ''catdir'' => ''gongyeyibiaoshiyebu'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=29'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''28'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''gongyeyibiaoshiyebu'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  28 => \n  array (\n    ''catid'' => ''28'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''12'',\n    ''arrparentid'' => ''0,12'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''28'',\n    ''catname'' => ''虚拟仿真事业部'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''yewu/'',\n    ''catdir'' => ''xunifangzhenshiyebu'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=28'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''29'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''xunifangzhenshiyebu'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  32 => \n  array (\n    ''catid'' => ''32'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''12'',\n    ''arrparentid'' => ''0,12'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''32'',\n    ''catname'' => ''飞行模拟器事业部'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''yewu/'',\n    ''catdir'' => ''feixingmoniqishiyebu'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=32'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''30'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''feixingmoniqishiyebu'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  31 => \n  array (\n    ''catid'' => ''31'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''12'',\n    ''arrparentid'' => ''0,12'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''31'',\n    ''catname'' => ''适航认证事业部'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''yewu/'',\n    ''catdir'' => ''shihangrenzhengshiyebu'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=31'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''31'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''shihangrenzhengshiyebu'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  30 => \n  array (\n    ''catid'' => ''30'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''12'',\n    ''arrparentid'' => ''0,12'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''30'',\n    ''catname'' => ''通用航空事业部'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''yewu/'',\n    ''catdir'' => ''tongyonghangkongshiyebu'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=30'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''32'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''tongyonghangkongshiyebu'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  33 => \n  array (\n    ''catid'' => ''33'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''11'',\n    ''arrparentid'' => ''0,11'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''33'',\n    ''catname'' => ''企业合作'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''chanxueyan/'',\n    ''catdir'' => ''qiyehezuo'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=33'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''33'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''qiyehezuo'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  34 => \n  array (\n    ''catid'' => ''34'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''11'',\n    ''arrparentid'' => ''0,11'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''34'',\n    ''catname'' => ''区域合作'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''chanxueyan/'',\n    ''catdir'' => ''quyuhezuo'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=34'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''34'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''quyuhezuo'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  35 => \n  array (\n    ''catid'' => ''35'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''10'',\n    ''arrparentid'' => ''0,10'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''35'',\n    ''catname'' => ''科技成果'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''keji/'',\n    ''catdir'' => ''kejichengguo'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=35'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''35'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''kejichengguo'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  36 => \n  array (\n    ''catid'' => ''36'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''10'',\n    ''arrparentid'' => ''0,10'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''36'',\n    ''catname'' => ''科技人才'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''keji/'',\n    ''catdir'' => ''kejirencai'',\n    ''url'' => ''http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=36'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''36'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''kejirencai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n);\n?>'),
-('sitelist.cache.php', 'caches_commons/caches_data/', '<?php\nreturn array (\n  1 => \n  array (\n    ''siteid'' => ''1'',\n    ''name'' => ''北航先进工业技术研究院'',\n    ''dirname'' => '''',\n    ''domain'' => ''http://localhost/gyygs/'',\n    ''site_title'' => ''北航先进工业技术研究院'',\n    ''keywords'' => ''北航先进工业技术研究院'',\n    ''description'' => ''北航先进工业技术研究院'',\n    ''release_point'' => '''',\n    ''default_style'' => ''default'',\n    ''template'' => ''default'',\n    ''setting'' => ''array (\n  \\''upload_maxsize\\'' => \\''2048\\'',\n  \\''upload_allowext\\'' => \\''jpg|jpeg|gif|bmp|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|rar|zip|swf\\'',\n  \\''watermark_enable\\'' => \\''1\\'',\n  \\''watermark_minwidth\\'' => \\''300\\'',\n  \\''watermark_minheight\\'' => \\''300\\'',\n  \\''watermark_img\\'' => \\''statics/images/water//mark.png\\'',\n  \\''watermark_pct\\'' => \\''85\\'',\n  \\''watermark_quality\\'' => \\''80\\'',\n  \\''watermark_pos\\'' => \\''9\\'',\n)'',\n    ''uuid'' => ''0d74d5c4-aa2f-11e2-947c-00ff90c9a787'',\n    ''url'' => ''http://localhost/gyygs/'',\n  ),\n);\n?>'),
+('category_content_1.cache.php', 'caches_commons/caches_data/', '<?php\nreturn array (\n  18 => \n  array (\n    ''catid'' => ''18'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''17'',\n    ''arrparentid'' => ''0,17'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''18'',\n    ''catname'' => ''关于我们'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''about/'',\n    ''catdir'' => ''guanyuwomen'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=18'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''1'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''guanyuwomen'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  19 => \n  array (\n    ''catid'' => ''19'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''17'',\n    ''arrparentid'' => ''0,17'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''19'',\n    ''catname'' => ''招贤纳士'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''about/'',\n    ''catdir'' => ''zhaoxiannashi'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=19'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''2'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''zhaoxiannashi'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  20 => \n  array (\n    ''catid'' => ''20'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''17'',\n    ''arrparentid'' => ''0,17'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''20'',\n    ''catname'' => ''联系我们'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''about/'',\n    ''catdir'' => ''lianxiwomen'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=20'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''3'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''lianxiwomen'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  6 => \n  array (\n    ''catid'' => ''6'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''6'',\n    ''catname'' => ''机构简介'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''jigou'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=6'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''6'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''jigoujianjie'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  7 => \n  array (\n    ''catid'' => ''7'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''7'',\n    ''catname'' => ''工作动态'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''xinwen'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=7'',\n    ''items'' => ''1'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''7'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''gongzuodongtai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  9 => \n  array (\n    ''catid'' => ''9'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''1'',\n    ''arrchildid'' => ''9,21,22,23,24,25'',\n    ''catname'' => ''服务平台'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''fuwu'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=9'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category_page\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''9'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''fuwupingtai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  10 => \n  array (\n    ''catid'' => ''10'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''1'',\n    ''arrchildid'' => ''10,35,36'',\n    ''catname'' => ''科技资源'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''keji'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=10'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category_page\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''10'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''kejiziyuan'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  11 => \n  array (\n    ''catid'' => ''11'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''1'',\n    ''arrchildid'' => ''11,33,34'',\n    ''catname'' => ''产学研合作'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''chanxueyan'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=11'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category_page\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''11'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''chanxueyanhezuo'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  12 => \n  array (\n    ''catid'' => ''12'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''1'',\n    ''arrchildid'' => ''12,29,28,32,31,30'',\n    ''catname'' => ''业务板块'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''yewu'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=12'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category_page\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''12'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''yewubankuai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  37 => \n  array (\n    ''catid'' => ''37'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''37'',\n    ''catname'' => ''政策文件'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''zhengce'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=37'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''13'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''zhengcewenjian'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  14 => \n  array (\n    ''catid'' => ''14'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''14'',\n    ''catname'' => ''联系我们'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''lianxi'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=14'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''14'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''lianxiwomen'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  17 => \n  array (\n    ''catid'' => ''17'',\n    ''siteid'' => ''1'',\n    ''type'' => ''0'',\n    ''modelid'' => ''1'',\n    ''parentid'' => ''0'',\n    ''arrparentid'' => ''0'',\n    ''child'' => ''1'',\n    ''arrchildid'' => ''17,18,19,20'',\n    ''catname'' => ''关于我们'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => '''',\n    ''catdir'' => ''about'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=17'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''workflowid\\'' => \\''\\'',\n  \\''ishtml\\'' => \\''0\\'',\n  \\''content_ishtml\\'' => \\''0\\'',\n  \\''create_to_html_root\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''default\\'',\n  \\''category_template\\'' => \\''category\\'',\n  \\''list_template\\'' => \\''list\\'',\n  \\''show_template\\'' => \\''show\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''presentpoint\\'' => \\''1\\'',\n  \\''defaultchargepoint\\'' => \\''0\\'',\n  \\''paytype\\'' => \\''0\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''16\\'',\n)'',\n    ''listorder'' => ''17'',\n    ''ismenu'' => ''0'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''guanyuwomen'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => ''0'',\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => ''0'',\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => ''16'',\n    ''workflowid'' => '''',\n    ''isdomain'' => ''0'',\n  ),\n  21 => \n  array (\n    ''catid'' => ''21'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''9'',\n    ''arrparentid'' => ''0,9'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''21'',\n    ''catname'' => ''首都科技条件平台'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''fuwu/'',\n    ''catdir'' => ''shoudukejitiaojianpingtai'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=21'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''21'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''shoudukejitiaojianpingtai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  22 => \n  array (\n    ''catid'' => ''22'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''9'',\n    ''arrparentid'' => ''0,9'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''22'',\n    ''catname'' => ''技术转移平台'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''fuwu/'',\n    ''catdir'' => ''jishuzhuanyipingtai'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=22'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''22'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''jishuzhuanyipingtai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  23 => \n  array (\n    ''catid'' => ''23'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''9'',\n    ''arrparentid'' => ''0,9'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''23'',\n    ''catname'' => ''行业创新联盟'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''fuwu/'',\n    ''catdir'' => ''xingyechuangxinlianmeng'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=23'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''23'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''xingyechuangxinlianmeng'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  24 => \n  array (\n    ''catid'' => ''24'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''9'',\n    ''arrparentid'' => ''0,9'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''24'',\n    ''catname'' => ''创新企业培育平台'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''fuwu/'',\n    ''catdir'' => ''chuangxinqiyepeiyupingtai'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=24'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''24'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''chuangxinqiyepeiyupingtai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  25 => \n  array (\n    ''catid'' => ''25'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''9'',\n    ''arrparentid'' => ''0,9'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''25'',\n    ''catname'' => ''创投管理'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''fuwu/'',\n    ''catdir'' => ''chuangtouguanli'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=25'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''25'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''chuangtouguanli'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  29 => \n  array (\n    ''catid'' => ''29'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''12'',\n    ''arrparentid'' => ''0,12'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''29'',\n    ''catname'' => ''工业仪表事业部'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''yewu/'',\n    ''catdir'' => ''gongyeyibiaoshiyebu'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=29'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''28'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''gongyeyibiaoshiyebu'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  28 => \n  array (\n    ''catid'' => ''28'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''12'',\n    ''arrparentid'' => ''0,12'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''28'',\n    ''catname'' => ''虚拟仿真事业部'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''yewu/'',\n    ''catdir'' => ''xunifangzhenshiyebu'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=28'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''29'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''xunifangzhenshiyebu'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  32 => \n  array (\n    ''catid'' => ''32'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''12'',\n    ''arrparentid'' => ''0,12'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''32'',\n    ''catname'' => ''飞行模拟器事业部'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''yewu/'',\n    ''catdir'' => ''feixingmoniqishiyebu'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=32'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''30'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''feixingmoniqishiyebu'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  31 => \n  array (\n    ''catid'' => ''31'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''12'',\n    ''arrparentid'' => ''0,12'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''31'',\n    ''catname'' => ''适航认证事业部'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''yewu/'',\n    ''catdir'' => ''shihangrenzhengshiyebu'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=31'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''31'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''shihangrenzhengshiyebu'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  30 => \n  array (\n    ''catid'' => ''30'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''12'',\n    ''arrparentid'' => ''0,12'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''30'',\n    ''catname'' => ''通用航空事业部'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''yewu/'',\n    ''catdir'' => ''tongyonghangkongshiyebu'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=30'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''32'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''tongyonghangkongshiyebu'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  33 => \n  array (\n    ''catid'' => ''33'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''11'',\n    ''arrparentid'' => ''0,11'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''33'',\n    ''catname'' => ''企业合作'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''chanxueyan/'',\n    ''catdir'' => ''qiyehezuo'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=33'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''33'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''qiyehezuo'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  34 => \n  array (\n    ''catid'' => ''34'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''11'',\n    ''arrparentid'' => ''0,11'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''34'',\n    ''catname'' => ''区域合作'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''chanxueyan/'',\n    ''catdir'' => ''quyuhezuo'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=34'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''34'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''quyuhezuo'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  35 => \n  array (\n    ''catid'' => ''35'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''10'',\n    ''arrparentid'' => ''0,10'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''35'',\n    ''catname'' => ''科技成果'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''keji/'',\n    ''catdir'' => ''kejichengguo'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=35'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''35'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''kejichengguo'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n  36 => \n  array (\n    ''catid'' => ''36'',\n    ''siteid'' => ''1'',\n    ''type'' => ''1'',\n    ''modelid'' => ''0'',\n    ''parentid'' => ''10'',\n    ''arrparentid'' => ''0,10'',\n    ''child'' => ''0'',\n    ''arrchildid'' => ''36'',\n    ''catname'' => ''科技人才'',\n    ''style'' => '''',\n    ''image'' => '''',\n    ''description'' => '''',\n    ''parentdir'' => ''keji/'',\n    ''catdir'' => ''kejirencai'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=36'',\n    ''items'' => ''0'',\n    ''hits'' => ''0'',\n    ''setting'' => ''array (\n  \\''ishtml\\'' => \\''0\\'',\n  \\''template_list\\'' => \\''\\'',\n  \\''meta_title\\'' => \\''\\'',\n  \\''meta_keywords\\'' => \\''\\'',\n  \\''meta_description\\'' => \\''\\'',\n  \\''category_ruleid\\'' => \\''6\\'',\n  \\''show_ruleid\\'' => \\''\\'',\n  \\''repeatchargedays\\'' => \\''1\\'',\n)'',\n    ''listorder'' => ''36'',\n    ''ismenu'' => ''1'',\n    ''sethtml'' => ''0'',\n    ''letter'' => ''kejirencai'',\n    ''usable_type'' => '''',\n    ''create_to_html_root'' => NULL,\n    ''ishtml'' => ''0'',\n    ''content_ishtml'' => NULL,\n    ''category_ruleid'' => ''6'',\n    ''show_ruleid'' => '''',\n    ''workflowid'' => NULL,\n    ''isdomain'' => ''0'',\n  ),\n);\n?>'),
+('sitelist.cache.php', 'caches_commons/caches_data/', '<?php\nreturn array (\n  1 => \n  array (\n    ''siteid'' => ''1'',\n    ''name'' => ''北航先进工业技术研究院'',\n    ''dirname'' => '''',\n    ''domain'' => ''http://gyygs.buaa.edu.cn/'',\n    ''site_title'' => ''北航先进工业技术研究院'',\n    ''keywords'' => ''北航先进工业技术研究院'',\n    ''description'' => ''北航先进工业技术研究院'',\n    ''release_point'' => '''',\n    ''default_style'' => ''default'',\n    ''template'' => ''default'',\n    ''setting'' => ''array (\n  \\''upload_maxsize\\'' => \\''2048\\'',\n  \\''upload_allowext\\'' => \\''jpg|jpeg|gif|bmp|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|rar|zip|swf\\'',\n  \\''watermark_enable\\'' => \\''1\\'',\n  \\''watermark_minwidth\\'' => \\''300\\'',\n  \\''watermark_minheight\\'' => \\''300\\'',\n  \\''watermark_img\\'' => \\''statics/images/water//mark.png\\'',\n  \\''watermark_pct\\'' => \\''85\\'',\n  \\''watermark_quality\\'' => \\''80\\'',\n  \\''watermark_pos\\'' => \\''9\\'',\n)'',\n    ''uuid'' => ''0d74d5c4-aa2f-11e2-947c-00ff90c9a787'',\n    ''url'' => ''http://gyygs.buaa.edu.cn/'',\n  ),\n);\n?>'),
 ('downservers.cache.php', 'caches_commons/caches_data/', '<?php\nreturn NULL;\n?>'),
 ('badword.cache.php', 'caches_commons/caches_data/', '<?php\nreturn array (\n);\n?>'),
 ('ipbanned.cache.php', 'caches_commons/caches_data/', '<?php\nreturn array (\n);\n?>'),
@@ -464,39 +461,39 @@ CREATE TABLE `bh_category` (
   PRIMARY KEY (`catid`),
   KEY `module` (`module`,`parentid`,`listorder`,`catid`),
   KEY `siteid` (`siteid`,`type`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
+)    AUTO_INCREMENT=38 ;
 
 --
 -- 转存表中的数据 `bh_category`
 --
 
 INSERT INTO `bh_category` (`catid`, `siteid`, `module`, `type`, `modelid`, `parentid`, `arrparentid`, `child`, `arrchildid`, `catname`, `style`, `image`, `description`, `parentdir`, `catdir`, `url`, `items`, `hits`, `setting`, `listorder`, `ismenu`, `sethtml`, `letter`, `usable_type`) VALUES
-(6, 1, 'content', 1, 0, 0, '0', 0, '6', '机构简介', '', '', '', '', 'jigou', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=6', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 6, 1, 0, 'jigoujianjie', ''),
-(7, 1, 'content', 0, 1, 0, '0', 0, '7', '工作动态', '', '', '', '', 'xinwen', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=7', 1, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 7, 1, 0, 'gongzuodongtai', ''),
-(18, 1, 'content', 1, 0, 17, '0,17', 0, '18', '关于我们', '', '', '', 'about/', 'guanyuwomen', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=18', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 1, 1, 0, 'guanyuwomen', ''),
-(9, 1, 'content', 0, 1, 0, '0', 1, '9,21,22,23,24,25', '服务平台', '', '', '', '', 'fuwu', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=9', 0, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category_page'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 9, 1, 0, 'fuwupingtai', ''),
-(10, 1, 'content', 0, 1, 0, '0', 1, '10,35,36', '科技资源', '', '', '', '', 'keji', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=10', 0, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category_page'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 10, 1, 0, 'kejiziyuan', ''),
-(11, 1, 'content', 0, 1, 0, '0', 1, '11,33,34', '产学研合作', '', '', '', '', 'chanxueyan', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=11', 0, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category_page'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 11, 1, 0, 'chanxueyanhezuo', ''),
-(12, 1, 'content', 0, 1, 0, '0', 1, '12,29,28,32,31,30', '业务板块', '', '', '', '', 'yewu', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=12', 0, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category_page'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 12, 1, 0, 'yewubankuai', ''),
-(37, 1, 'content', 0, 1, 0, '0', 0, '37', '政策文件', '', '', '', '', 'zhengce', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=37', 0, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 13, 1, 0, 'zhengcewenjian', ''),
-(14, 1, 'content', 1, 0, 0, '0', 0, '14', '联系我们', '', '', '', '', 'lianxi', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=14', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 14, 1, 0, 'lianxiwomen', ''),
-(17, 1, 'content', 0, 1, 0, '0', 1, '17,18,19,20', '关于我们', '', '', '', '', 'about', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=17', 0, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 17, 0, 0, 'guanyuwomen', ''),
-(19, 1, 'content', 1, 0, 17, '0,17', 0, '19', '招贤纳士', '', '', '', 'about/', 'zhaoxiannashi', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=19', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 2, 1, 0, 'zhaoxiannashi', ''),
-(20, 1, 'content', 1, 0, 17, '0,17', 0, '20', '联系我们', '', '', '', 'about/', 'lianxiwomen', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=20', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 3, 1, 0, 'lianxiwomen', ''),
-(21, 1, 'content', 1, 0, 9, '0,9', 0, '21', '首都科技条件平台', '', '', '', 'fuwu/', 'shoudukejitiaojianpingtai', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=21', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 21, 1, 0, 'shoudukejitiaojianpingtai', ''),
-(22, 1, 'content', 1, 0, 9, '0,9', 0, '22', '技术转移平台', '', '', '', 'fuwu/', 'jishuzhuanyipingtai', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=22', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 22, 1, 0, 'jishuzhuanyipingtai', ''),
-(23, 1, 'content', 1, 0, 9, '0,9', 0, '23', '行业创新联盟', '', '', '', 'fuwu/', 'xingyechuangxinlianmeng', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=23', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 23, 1, 0, 'xingyechuangxinlianmeng', ''),
-(24, 1, 'content', 1, 0, 9, '0,9', 0, '24', '创新企业培育平台', '', '', '', 'fuwu/', 'chuangxinqiyepeiyupingtai', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=24', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 24, 1, 0, 'chuangxinqiyepeiyupingtai', ''),
-(25, 1, 'content', 1, 0, 9, '0,9', 0, '25', '创投管理', '', '', '', 'fuwu/', 'chuangtouguanli', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=25', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 25, 1, 0, 'chuangtouguanli', ''),
-(35, 1, 'content', 1, 0, 10, '0,10', 0, '35', '科技成果', '', '', '', 'keji/', 'kejichengguo', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=35', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 35, 1, 0, 'kejichengguo', ''),
-(36, 1, 'content', 1, 0, 10, '0,10', 0, '36', '科技人才', '', '', '', 'keji/', 'kejirencai', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=36', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 36, 1, 0, 'kejirencai', ''),
-(28, 1, 'content', 1, 0, 12, '0,12', 0, '28', '虚拟仿真事业部', '', '', '', 'yewu/', 'xunifangzhenshiyebu', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=28', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 29, 1, 0, 'xunifangzhenshiyebu', ''),
-(29, 1, 'content', 1, 0, 12, '0,12', 0, '29', '工业仪表事业部', '', '', '', 'yewu/', 'gongyeyibiaoshiyebu', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=29', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 28, 1, 0, 'gongyeyibiaoshiyebu', ''),
-(30, 1, 'content', 1, 0, 12, '0,12', 0, '30', '通用航空事业部', '', '', '', 'yewu/', 'tongyonghangkongshiyebu', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=30', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 32, 1, 0, 'tongyonghangkongshiyebu', ''),
-(31, 1, 'content', 1, 0, 12, '0,12', 0, '31', '适航认证事业部', '', '', '', 'yewu/', 'shihangrenzhengshiyebu', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=31', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 31, 1, 0, 'shihangrenzhengshiyebu', ''),
-(32, 1, 'content', 1, 0, 12, '0,12', 0, '32', '飞行模拟器事业部', '', '', '', 'yewu/', 'feixingmoniqishiyebu', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=32', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 30, 1, 0, 'feixingmoniqishiyebu', ''),
-(33, 1, 'content', 1, 0, 11, '0,11', 0, '33', '企业合作', '', '', '', 'chanxueyan/', 'qiyehezuo', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=33', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 33, 1, 0, 'qiyehezuo', ''),
-(34, 1, 'content', 1, 0, 11, '0,11', 0, '34', '区域合作', '', '', '', 'chanxueyan/', 'quyuhezuo', 'http://localhost/gyygs/index.php?m=content&c=index&a=lists&catid=34', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 34, 1, 0, 'quyuhezuo', '');
+(6, 1, 'content', 1, 0, 0, '0', 0, '6', '机构简介', '', '', '', '', 'jigou', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=6', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 6, 1, 0, 'jigoujianjie', ''),
+(7, 1, 'content', 0, 1, 0, '0', 0, '7', '工作动态', '', '', '', '', 'xinwen', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=7', 1, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 7, 1, 0, 'gongzuodongtai', ''),
+(18, 1, 'content', 1, 0, 17, '0,17', 0, '18', '关于我们', '', '', '', 'about/', 'guanyuwomen', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=18', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 1, 1, 0, 'guanyuwomen', ''),
+(9, 1, 'content', 0, 1, 0, '0', 1, '9,21,22,23,24,25', '服务平台', '', '', '', '', 'fuwu', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=9', 0, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category_page'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 9, 1, 0, 'fuwupingtai', ''),
+(10, 1, 'content', 0, 1, 0, '0', 1, '10,35,36', '科技资源', '', '', '', '', 'keji', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=10', 0, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category_page'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 10, 1, 0, 'kejiziyuan', ''),
+(11, 1, 'content', 0, 1, 0, '0', 1, '11,33,34', '产学研合作', '', '', '', '', 'chanxueyan', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=11', 0, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category_page'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 11, 1, 0, 'chanxueyanhezuo', ''),
+(12, 1, 'content', 0, 1, 0, '0', 1, '12,29,28,32,31,30', '业务板块', '', '', '', '', 'yewu', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=12', 0, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category_page'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 12, 1, 0, 'yewubankuai', ''),
+(37, 1, 'content', 0, 1, 0, '0', 0, '37', '政策文件', '', '', '', '', 'zhengce', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=37', 0, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 13, 1, 0, 'zhengcewenjian', ''),
+(14, 1, 'content', 1, 0, 0, '0', 0, '14', '联系我们', '', '', '', '', 'lianxi', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=14', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 14, 1, 0, 'lianxiwomen', ''),
+(17, 1, 'content', 0, 1, 0, '0', 1, '17,18,19,20', '关于我们', '', '', '', '', 'about', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=17', 0, 0, 'array (\n  ''workflowid'' => '''',\n  ''ishtml'' => ''0'',\n  ''content_ishtml'' => ''0'',\n  ''create_to_html_root'' => ''0'',\n  ''template_list'' => ''default'',\n  ''category_template'' => ''category'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''presentpoint'' => ''1'',\n  ''defaultchargepoint'' => ''0'',\n  ''paytype'' => ''0'',\n  ''repeatchargedays'' => ''1'',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => ''16'',\n)', 17, 0, 0, 'guanyuwomen', ''),
+(19, 1, 'content', 1, 0, 17, '0,17', 0, '19', '招贤纳士', '', '', '', 'about/', 'zhaoxiannashi', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=19', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 2, 1, 0, 'zhaoxiannashi', ''),
+(20, 1, 'content', 1, 0, 17, '0,17', 0, '20', '联系我们', '', '', '', 'about/', 'lianxiwomen', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=20', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 3, 1, 0, 'lianxiwomen', ''),
+(21, 1, 'content', 1, 0, 9, '0,9', 0, '21', '首都科技条件平台', '', '', '', 'fuwu/', 'shoudukejitiaojianpingtai', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=21', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 21, 1, 0, 'shoudukejitiaojianpingtai', ''),
+(22, 1, 'content', 1, 0, 9, '0,9', 0, '22', '技术转移平台', '', '', '', 'fuwu/', 'jishuzhuanyipingtai', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=22', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 22, 1, 0, 'jishuzhuanyipingtai', ''),
+(23, 1, 'content', 1, 0, 9, '0,9', 0, '23', '行业创新联盟', '', '', '', 'fuwu/', 'xingyechuangxinlianmeng', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=23', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 23, 1, 0, 'xingyechuangxinlianmeng', ''),
+(24, 1, 'content', 1, 0, 9, '0,9', 0, '24', '创新企业培育平台', '', '', '', 'fuwu/', 'chuangxinqiyepeiyupingtai', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=24', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 24, 1, 0, 'chuangxinqiyepeiyupingtai', ''),
+(25, 1, 'content', 1, 0, 9, '0,9', 0, '25', '创投管理', '', '', '', 'fuwu/', 'chuangtouguanli', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=25', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 25, 1, 0, 'chuangtouguanli', ''),
+(35, 1, 'content', 1, 0, 10, '0,10', 0, '35', '科技成果', '', '', '', 'keji/', 'kejichengguo', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=35', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 35, 1, 0, 'kejichengguo', ''),
+(36, 1, 'content', 1, 0, 10, '0,10', 0, '36', '科技人才', '', '', '', 'keji/', 'kejirencai', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=36', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 36, 1, 0, 'kejirencai', ''),
+(28, 1, 'content', 1, 0, 12, '0,12', 0, '28', '虚拟仿真事业部', '', '', '', 'yewu/', 'xunifangzhenshiyebu', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=28', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 29, 1, 0, 'xunifangzhenshiyebu', ''),
+(29, 1, 'content', 1, 0, 12, '0,12', 0, '29', '工业仪表事业部', '', '', '', 'yewu/', 'gongyeyibiaoshiyebu', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=29', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 28, 1, 0, 'gongyeyibiaoshiyebu', ''),
+(30, 1, 'content', 1, 0, 12, '0,12', 0, '30', '通用航空事业部', '', '', '', 'yewu/', 'tongyonghangkongshiyebu', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=30', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 32, 1, 0, 'tongyonghangkongshiyebu', ''),
+(31, 1, 'content', 1, 0, 12, '0,12', 0, '31', '适航认证事业部', '', '', '', 'yewu/', 'shihangrenzhengshiyebu', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=31', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 31, 1, 0, 'shihangrenzhengshiyebu', ''),
+(32, 1, 'content', 1, 0, 12, '0,12', 0, '32', '飞行模拟器事业部', '', '', '', 'yewu/', 'feixingmoniqishiyebu', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=32', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 30, 1, 0, 'feixingmoniqishiyebu', ''),
+(33, 1, 'content', 1, 0, 11, '0,11', 0, '33', '企业合作', '', '', '', 'chanxueyan/', 'qiyehezuo', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=33', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 33, 1, 0, 'qiyehezuo', ''),
+(34, 1, 'content', 1, 0, 11, '0,11', 0, '34', '区域合作', '', '', '', 'chanxueyan/', 'quyuhezuo', 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=34', 0, 0, 'array (\n  ''ishtml'' => ''0'',\n  ''template_list'' => '''',\n  ''meta_title'' => '''',\n  ''meta_keywords'' => '''',\n  ''meta_description'' => '''',\n  ''category_ruleid'' => ''6'',\n  ''show_ruleid'' => '''',\n  ''repeatchargedays'' => ''1'',\n)', 34, 1, 0, 'quyuhezuo', '');
 
 -- --------------------------------------------------------
 
@@ -512,7 +509,7 @@ CREATE TABLE `bh_category_priv` (
   `action` char(30) NOT NULL,
   KEY `catid` (`catid`,`roleid`,`is_admin`,`action`),
   KEY `siteid` (`siteid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 --
 -- 转存表中的数据 `bh_category_priv`
@@ -612,7 +609,7 @@ CREATE TABLE `bh_collection_content` (
   PRIMARY KEY (`id`),
   KEY `nodeid` (`nodeid`,`siteid`),
   KEY `status` (`status`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -624,7 +621,7 @@ CREATE TABLE `bh_collection_history` (
   `md5` char(32) NOT NULL,
   `siteid` smallint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`md5`,`siteid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -669,7 +666,7 @@ CREATE TABLE `bh_collection_node` (
   `customize_config` text NOT NULL,
   PRIMARY KEY (`nodeid`),
   KEY `siteid` (`siteid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -687,7 +684,7 @@ CREATE TABLE `bh_collection_program` (
   PRIMARY KEY (`id`),
   KEY `siteid` (`siteid`),
   KEY `nodeid` (`nodeid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -710,7 +707,7 @@ CREATE TABLE `bh_comment` (
   PRIMARY KEY (`commentid`),
   KEY `lastupdate` (`lastupdate`),
   KEY `siteid` (`siteid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -726,7 +723,7 @@ CREATE TABLE `bh_comment_check` (
   PRIMARY KEY (`id`),
   KEY `siteid` (`siteid`),
   KEY `comment_data_id` (`comment_data_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -752,7 +749,7 @@ CREATE TABLE `bh_comment_data_1` (
   KEY `direction` (`direction`),
   KEY `siteid` (`siteid`),
   KEY `support` (`support`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -768,7 +765,7 @@ CREATE TABLE `bh_comment_setting` (
   `add_point` tinyint(3) unsigned DEFAULT '0' COMMENT '添加的积分数',
   `del_point` tinyint(3) unsigned DEFAULT '0' COMMENT '扣除的积分数',
   PRIMARY KEY (`siteid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 --
 -- 转存表中的数据 `bh_comment_setting`
@@ -788,7 +785,7 @@ CREATE TABLE `bh_comment_table` (
   `total` int(10) unsigned DEFAULT '0' COMMENT '数据总量',
   `creat_at` int(10) DEFAULT '0' COMMENT '创建时间',
   PRIMARY KEY (`tableid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+)    AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `bh_comment_table`
@@ -814,7 +811,7 @@ CREATE TABLE `bh_content_check` (
   KEY `username` (`username`),
   KEY `checkid` (`checkid`),
   KEY `status` (`status`,`inputtime`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -830,7 +827,7 @@ CREATE TABLE `bh_copyfrom` (
   `thumb` varchar(100) NOT NULL,
   `listorder` smallint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -851,7 +848,7 @@ CREATE TABLE `bh_datacall` (
   `num` smallint(6) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `type` (`type`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -872,7 +869,7 @@ CREATE TABLE `bh_dbsource` (
   `charset` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `siteid` (`siteid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -909,7 +906,7 @@ CREATE TABLE `bh_download` (
   KEY `status` (`status`,`listorder`,`id`),
   KEY `listorder` (`catid`,`status`,`listorder`,`id`),
   KEY `catid` (`catid`,`status`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -931,7 +928,7 @@ CREATE TABLE `bh_download_data` (
   `downfiles` mediumtext NOT NULL,
   `downfile` varchar(255) NOT NULL DEFAULT '',
   KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -946,7 +943,7 @@ CREATE TABLE `bh_downservers` (
   `listorder` smallint(5) unsigned NOT NULL DEFAULT '0',
   `siteid` smallint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -960,7 +957,7 @@ CREATE TABLE `bh_extend_setting` (
   `data` mediumtext,
   PRIMARY KEY (`id`),
   KEY `key` (`key`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -976,7 +973,7 @@ CREATE TABLE `bh_favorite` (
   `adddate` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -994,7 +991,7 @@ CREATE TABLE `bh_hits` (
   `monthviews` int(10) unsigned NOT NULL DEFAULT '0',
   `updatetime` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`hitsid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 --
 -- 转存表中的数据 `bh_hits`
@@ -1024,7 +1021,7 @@ CREATE TABLE `bh_ipbanned` (
   `ip` char(15) NOT NULL,
   `expires` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`ipbannedid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1037,7 +1034,7 @@ CREATE TABLE `bh_keylink` (
   `word` char(40) NOT NULL,
   `url` char(100) NOT NULL,
   PRIMARY KEY (`keylinkid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1054,7 +1051,7 @@ CREATE TABLE `bh_keyword` (
   `searchnums` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `keyword` (`keyword`,`siteid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+)    AUTO_INCREMENT=8 ;
 
 --
 -- 转存表中的数据 `bh_keyword`
@@ -1082,7 +1079,7 @@ CREATE TABLE `bh_keyword_data` (
   `contentid` char(30) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `tagid` (`tagid`,`siteid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
+)    AUTO_INCREMENT=34 ;
 
 --
 -- 转存表中的数据 `bh_keyword_data`
@@ -1145,7 +1142,7 @@ CREATE TABLE `bh_link` (
   `addtime` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`linkid`),
   KEY `typeid` (`typeid`,`passed`,`listorder`,`linkid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+)    AUTO_INCREMENT=7 ;
 
 --
 -- 转存表中的数据 `bh_link`
@@ -1179,7 +1176,7 @@ CREATE TABLE `bh_linkage` (
   `siteid` smallint(5) NOT NULL DEFAULT '0',
   PRIMARY KEY (`linkageid`,`keyid`),
   KEY `parentid` (`parentid`,`listorder`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3360 ;
+)    AUTO_INCREMENT=3360 ;
 
 --
 -- 转存表中的数据 `bh_linkage`
@@ -4496,7 +4493,7 @@ CREATE TABLE `bh_log` (
   PRIMARY KEY (`logid`),
   KEY `module` (`module`,`file`,`action`),
   KEY `username` (`username`,`action`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -4534,7 +4531,7 @@ CREATE TABLE `bh_member` (
   UNIQUE KEY `username` (`username`),
   KEY `email` (`email`(20)),
   KEY `phpssouid` (`phpssouid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -4546,7 +4543,7 @@ CREATE TABLE `bh_member_detail` (
   `userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `birthday` date DEFAULT NULL,
   UNIQUE KEY `userid` (`userid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -4580,7 +4577,7 @@ CREATE TABLE `bh_member_group` (
   PRIMARY KEY (`groupid`),
   KEY `disabled` (`disabled`),
   KEY `listorder` (`sort`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+)    AUTO_INCREMENT=9 ;
 
 --
 -- 转存表中的数据 `bh_member_group`
@@ -4617,7 +4614,7 @@ CREATE TABLE `bh_member_menu` (
   KEY `listorder` (`listorder`),
   KEY `parentid` (`parentid`),
   KEY `module` (`m`,`c`,`a`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+)    AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `bh_member_menu`
@@ -4653,7 +4650,7 @@ CREATE TABLE `bh_member_verify` (
   PRIMARY KEY (`userid`),
   UNIQUE KEY `username` (`username`),
   KEY `email` (`email`(20))
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -4664,7 +4661,7 @@ CREATE TABLE `bh_member_verify` (
 CREATE TABLE `bh_member_vip` (
   `userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   UNIQUE KEY `userid` (`userid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -4691,7 +4688,7 @@ CREATE TABLE `bh_menu` (
   KEY `listorder` (`listorder`),
   KEY `parentid` (`parentid`),
   KEY `module` (`m`,`c`,`a`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1577 ;
+)    AUTO_INCREMENT=1577 ;
 
 --
 -- 转存表中的数据 `bh_menu`
@@ -5055,7 +5052,7 @@ CREATE TABLE `bh_message` (
   KEY `msgtoid` (`send_to_id`,`folder`),
   KEY `replyid` (`replyid`),
   KEY `folder` (`send_from_id`,`folder`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5069,7 +5066,7 @@ CREATE TABLE `bh_message_data` (
   `group_message_id` int(5) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `message` (`userid`,`group_message_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5086,7 +5083,7 @@ CREATE TABLE `bh_message_group` (
   `inputtime` int(10) unsigned DEFAULT '0',
   `status` tinyint(2) unsigned DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5117,7 +5114,7 @@ CREATE TABLE `bh_model` (
   `type` tinyint(1) NOT NULL,
   PRIMARY KEY (`modelid`),
   KEY `type` (`type`,`siteid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+)    AUTO_INCREMENT=12 ;
 
 --
 -- 转存表中的数据 `bh_model`
@@ -5167,7 +5164,7 @@ CREATE TABLE `bh_model_field` (
   PRIMARY KEY (`fieldid`),
   KEY `modelid` (`modelid`,`disabled`),
   KEY `field` (`field`,`modelid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=108 ;
+)    AUTO_INCREMENT=108 ;
 
 --
 -- 转存表中的数据 `bh_model_field`
@@ -5295,7 +5292,7 @@ CREATE TABLE `bh_module` (
   `installdate` date NOT NULL DEFAULT '0000-00-00',
   `updatedate` date NOT NULL DEFAULT '0000-00-00',
   PRIMARY KEY (`module`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 --
 -- 转存表中的数据 `bh_module`
@@ -5358,7 +5355,7 @@ CREATE TABLE `bh_mood` (
   KEY `total` (`total`),
   KEY `lastupdate` (`lastupdate`),
   KEY `catid` (`catid`,`siteid`,`contentid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5388,14 +5385,14 @@ CREATE TABLE `bh_news` (
   KEY `status` (`status`,`listorder`,`id`),
   KEY `listorder` (`catid`,`status`,`listorder`,`id`),
   KEY `catid` (`catid`,`status`,`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+)    AUTO_INCREMENT=12 ;
 
 --
 -- 转存表中的数据 `bh_news`
 --
 
 INSERT INTO `bh_news` (`id`, `catid`, `typeid`, `title`, `style`, `thumb`, `keywords`, `description`, `posids`, `url`, `listorder`, `status`, `sysadd`, `islink`, `username`, `inputtime`, `updatetime`) VALUES
-(11, 7, 0, '北京北航工作动态工作动态', '', 'http://localhost/gyygs/uploadfile/2013/0503/20130503114903243.jpg', '北京 北航 工作', '​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态...', 1, 'http://localhost/gyygs/index.php?m=content&c=index&a=show&catid=7&id=11', 0, 99, 1, 0, 'phpcms', 1367596090, 1367596150);
+(11, 7, 0, '北京北航工作动态工作动态', '', 'http://gyygs.buaa.edu.cn/uploadfile/2013/0503/20130503114903243.jpg', '北京 北航 工作', '​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态...', 1, 'http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=show&catid=7&id=11', 0, 99, 1, 0, 'phpcms', 1367596090, 1367596150);
 
 -- --------------------------------------------------------
 
@@ -5417,7 +5414,7 @@ CREATE TABLE `bh_news_data` (
   `allow_comment` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `copyfrom` varchar(100) NOT NULL DEFAULT '',
   KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 --
 -- 转存表中的数据 `bh_news_data`
@@ -5441,7 +5438,7 @@ CREATE TABLE `bh_page` (
   `template` varchar(30) NOT NULL,
   `updatetime` int(10) unsigned NOT NULL DEFAULT '0',
   KEY `catid` (`catid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 --
 -- 转存表中的数据 `bh_page`
@@ -5449,13 +5446,13 @@ CREATE TABLE `bh_page` (
 
 INSERT INTO `bh_page` (`catid`, `title`, `style`, `keywords`, `content`, `template`, `updatetime`) VALUES
 (6, '北京北航先进工业技术研究院有限公司', ';', '', '<strong style="color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: 12pt; color: rgb(36, 14, 139);"><span style="font-size: medium;"><img border="0" src="http://gyygs.buaa.edu.cn/images/stories/introduction-not-home.jpg" style="border: 0px; float: left; margin: 10px;" /></span></span></strong><strong style="font-size: medium; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: large;">公司简介：</span></strong>\r\n<p align="left" style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;">北京北航先进工业技术研究院有限公司成立于2010年11月，注册资本金5000万元，是北京航空航天大学委托北京北航资产经营有限公司独资设立的全资子公司。</span></p>\r\n<p align="left" style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;"><strong><span style="font-size: large;">核心优势：</span></strong></span></p>\r\n<p align="left" style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;">北京北航先进工业技术研究院有限公司以北航为主体、企业化运作，与北航民口科技管理部门、北航国家大学科技园三位一体支撑北京北航先进工业技术研究院的建设运行。北京北航先进工业技术研究院有限公司是北京北航先进工业技术研究院建设运行的企业实体，集合了北京航空航天大学的人才、科技、成果资源和北航国家大学科技园产学研合作基地、密云产业化基地以及公共服务平台资源，用专职专业的服务团队、提供优势的管理服务。</span></p>\r\n<p align="left" style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;"><strong><span style="font-size: large;">主营业务：</span></strong></span></p>\r\n<p align="left" style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;">公司以技术开发、产品研制、技术服务、技术咨询、高新技术成果孵化、技术市场推广、投融资等为主要业务范围，主要从事科技成果的转移、转化及产业化，承担国家、地区重大科研项目，为学校教学科研工作提供配套服务。</span></p>\r\n<p style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;">具体职能包括：</span></p>\r\n<p style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;">1、以项目部形式服务、支持管理学校部分项目。</span></p>\r\n<p style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;">2、以平台事业部形式支撑工程中心、产业联盟、首都科技条件平台等行业创新平台</span></p>\r\n<p style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;">3、以业务事业部形式培育通用航空、飞行模拟器、工业仪表、适航认证等产业化前景好的项目，推</span></p>\r\n<p style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;">进成果产业化培育</span></p>\r\n<p style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;">4、对工程中心、外地区域研究院公司进行出资。</span></p>\r\n<p style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;">5、设立、管理及运行创投管理公司及创投基金公司。</span></p>\r\n<p style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><strong><span style="font-size: medium;">&nbsp;</span></strong></p>\r\n<p style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;"><strong><span style="font-size: large;">组织机构：</span></strong></span></p>\r\n<p style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;"><span style="font-size: medium;">项目发展部、产学研合作部、综合部、财务部、创投管理部。</span></p>\r\n<p style="margin: 1em 0px; padding: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px; text-align: center;"><span style="font-size: medium;"><img border="0" src="http://gyygs.buaa.edu.cn/images/stories/zuzhi.jpg" style="border: none; vertical-align: middle;" /></span></p>\r\n', '', 0),
-(25, '创投管理介绍', ';', '创投 管理', '<p><img src="http://localhost/gyygs/uploadfile/2013/0430/20130430025722374.jpg" style="float: left;" /><br />\r\n<span style="font-size:16px;"><strong>基金名称：</strong>北航创业投资基金<br />\r\n<br />\r\n<strong>基金简介：</strong>为了推动北航重大科技成果转化和产业化，工研院公司联合中关村管委会、海淀园、北航优秀校友企业和个人发起设立了专门服务于早期项目的科技成果转化投资基金&mdash;北航创业投资基金，基金规模5000万元，采用有限合伙制进行运营。<br />\r\n<br />\r\n<strong>管理公司：</strong>北航创业投资基金管理公司<br />\r\n<br />\r\n<strong>投资领域：</strong>航空航天、电子信息、新能源、新材料、先进制造、医疗器械等行业领域</span></p>\r\n', '', 0),
+(25, '创投管理介绍', ';', '创投 管理', '<p><img src="http://gyygs.buaa.edu.cn/uploadfile/2013/0430/20130430025722374.jpg" style="float: left;" /><br />\r\n<span style="font-size:16px;"><strong>基金名称：</strong>北航创业投资基金<br />\r\n<br />\r\n<strong>基金简介：</strong>为了推动北航重大科技成果转化和产业化，工研院公司联合中关村管委会、海淀园、北航优秀校友企业和个人发起设立了专门服务于早期项目的科技成果转化投资基金&mdash;北航创业投资基金，基金规模5000万元，采用有限合伙制进行运营。<br />\r\n<br />\r\n<strong>管理公司：</strong>北航创业投资基金管理公司<br />\r\n<br />\r\n<strong>投资领域：</strong>航空航天、电子信息、新能源、新材料、先进制造、医疗器械等行业领域</span></p>\r\n', '', 0),
 (21, '首都科技条件平台', ';', '首都 科技 条件', '<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 首都科技条件平台是首都区域创新体系建设的基础工程之一，平台以&ldquo;撬动科技资源、促进开放共享，服务企业需求、促进社会发展&rdquo;为宗旨，通过促进高校和科研院所资源开放共享，激活科技条件资源，面向企业、社会提供研发实验服务，推动首都创新型城市建设。<br />\r\n&nbsp; &nbsp; &nbsp; 首都科技条件平台北航研发服务试验基地为北京市科委和北京航空航天大学共同建设，北京北航先进工业技术研究院有限公司为基地的运营机构。北航研发服务试验基地的建设有助于实现北航科技资源向社会企业低成本开放共享，实现实验室、仪器设备、科研成果、人才的对外开放。通过制度创新，实现科技资源的高效运营和服务市场化，为北京经济社会发展提供服务。</span><br />\r\n', '', 0),
-(14, '联系方式', ';', '', '<table border="0" style="border-collapse: collapse; border-spacing: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;">\r\n<tbody>\r\n	<tr>\r\n	<td><span style="font-size: small;">通讯地址</span></td>\r\n	<td><span style="font-size: small;">：</span></td>\r\n	<td><span style="font-size: small;">北京市海淀区北四环中路238号柏彦大厦701室</span></td>\r\n	</tr>\r\n	<tr>\r\n	<td><span style="font-size: small;">邮 编</span></td>\r\n	<td><span style="font-size: xx-small;"><span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: normal;">：</span></span></td>\r\n	<td><span style="font-size: small;">100091</span></td>\r\n	</tr>\r\n	<tr>\r\n	<td><span style="font-size: small;">公司事务联系人</span></td>\r\n	<td><span style="font-size: xx-small;"><span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: normal;">：</span></span></td>\r\n	<td><span style="font-size: small;">施佳</span></td>\r\n	</tr>\r\n	<tr>\r\n	<td>&nbsp;</td>\r\n	<td>&nbsp;</td>\r\n	<td><span style="font-size: small;">010-82338427/28/29转805</span></td>\r\n	</tr>\r\n	<tr>\r\n	<td><span style="font-size: small;">产学研合作联系人</span></td>\r\n	<td><span style="font-size: xx-small;"><span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: normal;">：</span></span></td>\r\n	<td><span style="font-size: small;">李涛</span></td>\r\n	</tr>\r\n	<tr>\r\n	<td>&nbsp;</td>\r\n	<td>&nbsp;</td>\r\n	<td><span style="font-size: small;">010-82338427/28/29转827</span></td>\r\n	</tr>\r\n	<tr>\r\n	<td><span style="font-size: small;">电子信箱</span></td>\r\n	<td><span style="font-size: x-small;"><span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: normal;">：</span></span></td>\r\n	<td><span style="font-size: small;"><a href="mailto:gyygs@buaa.edu.cn" style="outline: none; color: rgb(21, 82, 126); text-decoration: none;">gyygs@buaa.edu.cn</a></span></td>\r\n	</tr>\r\n</tbody>\r\n</table>\r\n<br />\r\n<img src="http://localhost/gyygs/uploadfile/2013/0504/20130504103817993.png" /><br />\r\n', '', 0),
-(29, '工业仪表事业部', ';', '工业 仪表 事业部', '<img src="http://localhost/gyygs/uploadfile/2013/0505/20130505024453876.png" style="float: left;" /><br />\r\n<br />\r\n<div><span style="font-size:16px;">&nbsp; &nbsp; &nbsp; &nbsp; 工业仪表事业部在高性能传感器、工业过程控制仪表、高精度检测仪器等方向具有深厚的研究基础，掌握了传感器设计、微弱信号检测、高精度控制等核心关键技术和相关解决方案。</span></div>\r\n<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; &nbsp; 目前，本事业部拥有高性能液体密度实时在线测量装置、高精度质量流量计、医疗定量检测系统、管道涂层拉力检测装置等创新产品10余项。同时，针对新一代信息技术、新能源、先进制造等战略性新兴产业，科研团队积极开展技术攻关和产业化研发。</span><br />\r\n', '', 0),
-(28, '虚拟仿真事业部', ';', '虚拟 仿真 事业部', '<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; &nbsp; 虚拟仿真事业部以北京航空航天大学&ldquo;城市运行应急保障模拟技术北京市重点实验室&rdquo;、先进飞行器技术研究中心等国内顶尖研究机构为依托，面向高端装备、能源矿产、应急救援、公众安全等领域，运用虚拟仿真、网络互动等先进技术，为政府、企业、公众提供专业的虚拟仿真训练、数字化保障支持、智能决策支持、客户选型与体验等方面的产品和解决方案。</span><br />\r\n<div style="text-align: center;"><img src="http://localhost/gyygs/uploadfile/2013/0505/20130505024654501.jpg" /></div>\r\n', '', 0),
+(14, '联系方式', ';', '', '<table border="0" style="border-collapse: collapse; border-spacing: 0px; color: rgb(78, 78, 78); font-family: Arial, Tahoma, Helvetica, sans-serif; line-height: 18px;">\r\n<tbody>\r\n	<tr>\r\n	<td><span style="font-size: small;">通讯地址</span></td>\r\n	<td><span style="font-size: small;">：</span></td>\r\n	<td><span style="font-size: small;">北京市海淀区北四环中路238号柏彦大厦701室</span></td>\r\n	</tr>\r\n	<tr>\r\n	<td><span style="font-size: small;">邮 编</span></td>\r\n	<td><span style="font-size: xx-small;"><span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: normal;">：</span></span></td>\r\n	<td><span style="font-size: small;">100091</span></td>\r\n	</tr>\r\n	<tr>\r\n	<td><span style="font-size: small;">公司事务联系人</span></td>\r\n	<td><span style="font-size: xx-small;"><span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: normal;">：</span></span></td>\r\n	<td><span style="font-size: small;">施佳</span></td>\r\n	</tr>\r\n	<tr>\r\n	<td>&nbsp;</td>\r\n	<td>&nbsp;</td>\r\n	<td><span style="font-size: small;">010-82338427/28/29转805</span></td>\r\n	</tr>\r\n	<tr>\r\n	<td><span style="font-size: small;">产学研合作联系人</span></td>\r\n	<td><span style="font-size: xx-small;"><span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: normal;">：</span></span></td>\r\n	<td><span style="font-size: small;">李涛</span></td>\r\n	</tr>\r\n	<tr>\r\n	<td>&nbsp;</td>\r\n	<td>&nbsp;</td>\r\n	<td><span style="font-size: small;">010-82338427/28/29转827</span></td>\r\n	</tr>\r\n	<tr>\r\n	<td><span style="font-size: small;">电子信箱</span></td>\r\n	<td><span style="font-size: x-small;"><span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: normal;">：</span></span></td>\r\n	<td><span style="font-size: small;"><a href="mailto:gyygs@buaa.edu.cn" style="outline: none; color: rgb(21, 82, 126); text-decoration: none;">gyygs@buaa.edu.cn</a></span></td>\r\n	</tr>\r\n</tbody>\r\n</table>\r\n<br />\r\n<img src="http://gyygs.buaa.edu.cn/uploadfile/2013/0504/20130504103817993.png" /><br />\r\n', '', 0),
+(29, '工业仪表事业部', ';', '工业 仪表 事业部', '<img src="http://gyygs.buaa.edu.cn/uploadfile/2013/0505/20130505024453876.png" style="float: left;" /><br />\r\n<br />\r\n<div><span style="font-size:16px;">&nbsp; &nbsp; &nbsp; &nbsp; 工业仪表事业部在高性能传感器、工业过程控制仪表、高精度检测仪器等方向具有深厚的研究基础，掌握了传感器设计、微弱信号检测、高精度控制等核心关键技术和相关解决方案。</span></div>\r\n<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; &nbsp; 目前，本事业部拥有高性能液体密度实时在线测量装置、高精度质量流量计、医疗定量检测系统、管道涂层拉力检测装置等创新产品10余项。同时，针对新一代信息技术、新能源、先进制造等战略性新兴产业，科研团队积极开展技术攻关和产业化研发。</span><br />\r\n', '', 0),
+(28, '虚拟仿真事业部', ';', '虚拟 仿真 事业部', '<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; &nbsp; 虚拟仿真事业部以北京航空航天大学&ldquo;城市运行应急保障模拟技术北京市重点实验室&rdquo;、先进飞行器技术研究中心等国内顶尖研究机构为依托，面向高端装备、能源矿产、应急救援、公众安全等领域，运用虚拟仿真、网络互动等先进技术，为政府、企业、公众提供专业的虚拟仿真训练、数字化保障支持、智能决策支持、客户选型与体验等方面的产品和解决方案。</span><br />\r\n<div style="text-align: center;"><img src="http://gyygs.buaa.edu.cn/uploadfile/2013/0505/20130505024654501.jpg" /></div>\r\n', '', 0),
 (35, '成果介绍', ';', '成果 介绍', '新一代信息技术<br />\r\n生物<br />\r\n高端装备制造<br />\r\n新能源<br />\r\n新材料<br />\r\n现代交通<br />\r\n航空航天<br />\r\n节能环保<br />\r\n城市建设和社会发展<br />\r\n', '', 0),
-(23, '联盟介绍', ';', '联盟 介绍', '<h2><strong>中国智慧城市产业技术创新战略联盟</strong></h2>\r\n<img src="http://localhost/gyygs/uploadfile/2013/0505/20130505012223542.png" /><br />\r\n<p><span style="font-size: 14px;">联盟网站地址：&nbsp;</span><a href="http://www.smartcityunion.cn" style="font-size: 14px;">http://www.smartcityunion.cn</a><br />\r\n<br />\r\n<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 联盟成立于2012年9月28日，由神州数码信息系统有限公司、北京航空航天大学、公安部第三研究所、航天科技控股集团等18家单位共同发起。神州数码信息系统有限公司为首任理事长单位，北京航空航天大学为秘书处单位。联盟以技术创新需求为纽带，以契约关系为保障，有效整合产、学、研、用各方资源，充分发挥自身优势，通过对智慧城市共性核心基础技术的研究及自主创新，形成具有自主知识产权的产业标准、专利技术和专有技术，带动重大应用示范，实现从&ldquo;跟随&rdquo;到&ldquo;引领&rdquo;的转变，推动国内智慧城市的建设和发展。同时，通过协同合作，降低风险和成本，促进联盟成员的共同进步，实现共赢共荣。</span><br />\r\n&nbsp;</p>\r\n<hr />\r\n<h2><br />\r\n<strong>中国云产业联盟</strong></h2>\r\n<br />\r\n<p><img src="http://localhost/gyygs/uploadfile/2013/0505/20130505012337461.png" style="float: left;" /><span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 联盟成立于2012年4月20日，由北京航空航天大学、宽带资本、百度、用友、中国联通、龙湖地产、TCL、联想、阿里巴巴、腾讯、北京大学共同发起。联盟旨在整合资源，在研发、应用、标准、人才等方面开展协调工作，拓宽中国云计算产业链深度和广度。将通过宣传教育、研讨交流、数据共享、联合开发、推广应用、产业标准制定与推行、联合人才培养、业务与投资合作、促进政策支持等工作，培植世界领先的云计算技术、产品、产业和市场，参与行业标准的制定，推进中国云计算技术与产品的突破性创新，产业的跨越式发展，推动培植世界领先的云计算技术、产品、产业和市场。</span></p>\r\n<hr />\r\n<h2><br />\r\n中国航空替代燃料产业技术创新战略联盟</h2>\r\n<br />\r\n<p><img src="http://localhost/gyygs/uploadfile/2013/0505/20130505012400827.png" style="float: left;" /><span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 联盟成立于2012年12月20日，由北京航空航天大学、中国石油化工集团公司、中国国际航空股份有限公司、中国民用航空局航油航化适航审定中心、中国治理荒漠化基金会共同发起成立。北航为&ldquo;中国航空替代燃料产业技术创新战略联盟&rdquo;首届理事长单位。联盟以我国航空替代燃料领域的技术创新需求为导向，以提高我国航空替代燃料领域的产业核心竞争力为目标，充分发挥联盟成员的创新资源优势和行业影响，突破航空替代燃料领域的核心关键技术、促进产业技术进步和产业链的有序发展。</span><br />\r\n&nbsp;</p>\r\n<hr />\r\n<h2><br />\r\n<strong>国家通用航空产业协同创新联盟</strong></h2>\r\n<br />\r\n<p><span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 联盟成立于2011年11月20日，由北京航空航天大学、北京通用航空有限公司、民航局空管局技术中心、民航数据通信有限责任公司等单位发起。联盟以&ldquo;凝聚科技资源配置、引领产业技术创新、全面提升我国通用航空领域核心竞争力&rdquo;为宗旨，以缔约各方的共同利益为基础，充分发挥成员单位的科技创新、人才培养、成果转化等资源优势，加强产学研结合，共同致力于支撑我国通用航空领域的技术自主创新和产业健康可持续发展。</span></p>\r\n<hr />\r\n<h2><br />\r\n中关村空间信息技术产业联盟</h2>\r\n<br />\r\n<img src="http://localhost/gyygs/uploadfile/2013/0505/20130505012428559.png" style="float: left;" />\r\n<p><span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 联盟成立于2011年8月16日，由北京合众思壮科技股份有限公司、北京四维图新科技股份有限公司、北京北斗星通导航技术股份有限公司、北京航空航天大学卫星导航技术及应用研究中心等11家单位发起。联盟以&ldquo;凝聚科技资源、引领技术创新、支撑产业发展、实现合作共赢&rdquo;为宗旨，以应用为方向、技术为主线、需求为动力，构建以市场为导向、企业为主体的&ldquo;用、产、学、研、管&rdquo;相结合的技术与产业创新体系，致力于建设产业公共科技平台，大幅度提升企业自主创新能力，突破产业发展关键瓶颈技术，建立产业重大技术标准，推动产业结构优化升级，加速科技成果的商品化，提升产业核心竞争力，共同推进以卫星导航、地理信息系统和先进遥感为核心的空间信息这一战略性新兴产业的规模化进程，实现产业高速度、跨越式发展。</span></p>\r\n', '', 0),
+(23, '联盟介绍', ';', '联盟 介绍', '<h2><strong>中国智慧城市产业技术创新战略联盟</strong></h2>\r\n<img src="http://gyygs.buaa.edu.cn/uploadfile/2013/0505/20130505012223542.png" /><br />\r\n<p><span style="font-size: 14px;">联盟网站地址：&nbsp;</span><a href="http://www.smartcityunion.cn" style="font-size: 14px;">http://www.smartcityunion.cn</a><br />\r\n<br />\r\n<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 联盟成立于2012年9月28日，由神州数码信息系统有限公司、北京航空航天大学、公安部第三研究所、航天科技控股集团等18家单位共同发起。神州数码信息系统有限公司为首任理事长单位，北京航空航天大学为秘书处单位。联盟以技术创新需求为纽带，以契约关系为保障，有效整合产、学、研、用各方资源，充分发挥自身优势，通过对智慧城市共性核心基础技术的研究及自主创新，形成具有自主知识产权的产业标准、专利技术和专有技术，带动重大应用示范，实现从&ldquo;跟随&rdquo;到&ldquo;引领&rdquo;的转变，推动国内智慧城市的建设和发展。同时，通过协同合作，降低风险和成本，促进联盟成员的共同进步，实现共赢共荣。</span><br />\r\n&nbsp;</p>\r\n<hr />\r\n<h2><br />\r\n<strong>中国云产业联盟</strong></h2>\r\n<br />\r\n<p><img src="http://gyygs.buaa.edu.cn/uploadfile/2013/0505/20130505012337461.png" style="float: left;" /><span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 联盟成立于2012年4月20日，由北京航空航天大学、宽带资本、百度、用友、中国联通、龙湖地产、TCL、联想、阿里巴巴、腾讯、北京大学共同发起。联盟旨在整合资源，在研发、应用、标准、人才等方面开展协调工作，拓宽中国云计算产业链深度和广度。将通过宣传教育、研讨交流、数据共享、联合开发、推广应用、产业标准制定与推行、联合人才培养、业务与投资合作、促进政策支持等工作，培植世界领先的云计算技术、产品、产业和市场，参与行业标准的制定，推进中国云计算技术与产品的突破性创新，产业的跨越式发展，推动培植世界领先的云计算技术、产品、产业和市场。</span></p>\r\n<hr />\r\n<h2><br />\r\n中国航空替代燃料产业技术创新战略联盟</h2>\r\n<br />\r\n<p><img src="http://gyygs.buaa.edu.cn/uploadfile/2013/0505/20130505012400827.png" style="float: left;" /><span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 联盟成立于2012年12月20日，由北京航空航天大学、中国石油化工集团公司、中国国际航空股份有限公司、中国民用航空局航油航化适航审定中心、中国治理荒漠化基金会共同发起成立。北航为&ldquo;中国航空替代燃料产业技术创新战略联盟&rdquo;首届理事长单位。联盟以我国航空替代燃料领域的技术创新需求为导向，以提高我国航空替代燃料领域的产业核心竞争力为目标，充分发挥联盟成员的创新资源优势和行业影响，突破航空替代燃料领域的核心关键技术、促进产业技术进步和产业链的有序发展。</span><br />\r\n&nbsp;</p>\r\n<hr />\r\n<h2><br />\r\n<strong>国家通用航空产业协同创新联盟</strong></h2>\r\n<br />\r\n<p><span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 联盟成立于2011年11月20日，由北京航空航天大学、北京通用航空有限公司、民航局空管局技术中心、民航数据通信有限责任公司等单位发起。联盟以&ldquo;凝聚科技资源配置、引领产业技术创新、全面提升我国通用航空领域核心竞争力&rdquo;为宗旨，以缔约各方的共同利益为基础，充分发挥成员单位的科技创新、人才培养、成果转化等资源优势，加强产学研结合，共同致力于支撑我国通用航空领域的技术自主创新和产业健康可持续发展。</span></p>\r\n<hr />\r\n<h2><br />\r\n中关村空间信息技术产业联盟</h2>\r\n<br />\r\n<img src="http://gyygs.buaa.edu.cn/uploadfile/2013/0505/20130505012428559.png" style="float: left;" />\r\n<p><span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 联盟成立于2011年8月16日，由北京合众思壮科技股份有限公司、北京四维图新科技股份有限公司、北京北斗星通导航技术股份有限公司、北京航空航天大学卫星导航技术及应用研究中心等11家单位发起。联盟以&ldquo;凝聚科技资源、引领技术创新、支撑产业发展、实现合作共赢&rdquo;为宗旨，以应用为方向、技术为主线、需求为动力，构建以市场为导向、企业为主体的&ldquo;用、产、学、研、管&rdquo;相结合的技术与产业创新体系，致力于建设产业公共科技平台，大幅度提升企业自主创新能力，突破产业发展关键瓶颈技术，建立产业重大技术标准，推动产业结构优化升级，加速科技成果的商品化，提升产业核心竞争力，共同推进以卫星导航、地理信息系统和先进遥感为核心的空间信息这一战略性新兴产业的规模化进程，实现产业高速度、跨越式发展。</span></p>\r\n', '', 0),
 (30, '通航动力事业部', ';', '通航 动力 事业部', '<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; &nbsp; 事业部以航空重油发动机为产品突破口，通过国际适航取证，进入民用通航飞机动力系统市场，逐渐发展为集产品研发、关键零部件制造销售、整机制造、航材服务为一体的航空动力系统平台。</span>', '', 0),
 (31, '适航服务事业部', ';', '适 航 服务', '<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; &nbsp; 事业部围绕通用航空产品适航取证、适航审定等方面的需求，面向国内外通用航空制造企业，提供获取中国适航证的技术服务以及适航符合性设计与验证服务，同时为政府适航审定部门提供适航技术试验与审定的技术服务，为企业及政府相关部门提供适航技术培训服务。</span>', '', 0);
 
@@ -5490,7 +5487,7 @@ CREATE TABLE `bh_pay_account` (
   KEY `status` (`status`),
   KEY `userid` (`userid`),
   KEY `trade_sn` (`trade_sn`,`money`,`status`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5516,7 +5513,7 @@ CREATE TABLE `bh_pay_payment` (
   `version` varchar(20) NOT NULL,
   PRIMARY KEY (`pay_id`),
   KEY `pay_code` (`pay_code`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5540,7 +5537,7 @@ CREATE TABLE `bh_pay_spend` (
   KEY `creat_at` (`creat_at`),
   KEY `logo` (`logo`),
   KEY `userid` (`userid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5570,7 +5567,7 @@ CREATE TABLE `bh_picture` (
   KEY `status` (`status`,`listorder`,`id`),
   KEY `listorder` (`catid`,`status`,`listorder`,`id`),
   KEY `catid` (`catid`,`status`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5592,7 +5589,7 @@ CREATE TABLE `bh_picture_data` (
   `copyfrom` varchar(255) NOT NULL DEFAULT '',
   `allow_comment` tinyint(1) unsigned NOT NULL DEFAULT '1',
   KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -5611,7 +5608,7 @@ CREATE TABLE `bh_position` (
   `siteid` smallint(5) unsigned NOT NULL DEFAULT '0',
   `thumb` varchar(150) NOT NULL DEFAULT '',
   PRIMARY KEY (`posid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+)    AUTO_INCREMENT=18 ;
 
 --
 -- 转存表中的数据 `bh_position`
@@ -5652,30 +5649,30 @@ CREATE TABLE `bh_position_data` (
   `synedit` tinyint(1) DEFAULT '0',
   KEY `posid` (`posid`),
   KEY `listorder` (`listorder`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 --
 -- 转存表中的数据 `bh_position_data`
 --
 
 INSERT INTO `bh_position_data` (`id`, `catid`, `posid`, `module`, `modelid`, `thumb`, `data`, `siteid`, `listorder`, `expiration`, `extention`, `synedit`) VALUES
-(1, 15, 2, 'content', 1, 1, 'array (\n  ''title'' => ''北汽与北航开展通航领域合作'',\n  ''description'' => ''北汽与北航开展通航领域合作'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421105821844.jpg'',\n  ''inputtime'' => ''1366513067'',\n)', 1, 1, 0, NULL, 0),
-(1, 15, 1, 'content', 1, 1, 'array (\n  ''title'' => ''北汽与北航开展通航领域合作'',\n  ''description'' => ''北汽与北航开展通航领域合作'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421105821844.jpg'',\n  ''inputtime'' => ''1366513067'',\n)', 1, 1, 0, NULL, 0),
-(1, 15, 12, 'content', 1, 1, 'array (\n  ''title'' => ''北汽与北航开展通航领域合作'',\n  ''description'' => ''北汽与北航开展通航领域合作'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421105821844.jpg'',\n  ''inputtime'' => ''1366513067'',\n)', 1, 1, 0, NULL, 0),
-(1, 15, 10, 'content', 1, 1, 'array (\n  ''title'' => ''北汽与北航开展通航领域合作'',\n  ''description'' => ''北汽与北航开展通航领域合作'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421105821844.jpg'',\n  ''inputtime'' => ''1366513067'',\n)', 1, 1, 0, NULL, 0),
-(2, 16, 2, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421110020639.jpg'',\n  ''inputtime'' => ''1366513124'',\n  ''style'' => '''',\n)', 1, 2, 0, NULL, 0),
-(2, 16, 1, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421110020639.jpg'',\n  ''inputtime'' => ''1366513124'',\n  ''style'' => '''',\n)', 1, 2, 0, NULL, 0),
-(2, 16, 12, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421110020639.jpg'',\n  ''inputtime'' => ''1366513124'',\n  ''style'' => '''',\n)', 1, 2, 0, NULL, 0),
-(2, 16, 10, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421110020639.jpg'',\n  ''inputtime'' => ''1366513124'',\n  ''style'' => '''',\n)', 1, 2, 0, NULL, 0),
-(3, 15, 2, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业...'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421114538703.jpg'',\n  ''inputtime'' => ''1366515912'',\n)', 1, 3, 0, NULL, 0),
-(3, 15, 1, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业...'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421114538703.jpg'',\n  ''inputtime'' => ''1366515912'',\n)', 1, 3, 0, NULL, 0),
-(3, 15, 12, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业...'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421114538703.jpg'',\n  ''inputtime'' => ''1366515912'',\n)', 1, 3, 0, NULL, 0),
-(4, 15, 2, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业...'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421114608683.jpg'',\n  ''inputtime'' => ''1366515957'',\n)', 1, 4, 0, NULL, 0),
-(4, 15, 1, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业...'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421114608683.jpg'',\n  ''inputtime'' => ''1366515957'',\n)', 1, 4, 0, NULL, 0),
-(4, 15, 12, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业...'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0421/20130421114608683.jpg'',\n  ''inputtime'' => ''1366515957'',\n)', 1, 4, 0, NULL, 0),
-(11, 7, 2, 'content', 1, 1, 'array (\n  ''title'' => ''北京北航工作动态工作动态'',\n  ''description'' => ''​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态...'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0503/20130503114903243.jpg'',\n  ''inputtime'' => ''1367596090'',\n)', 1, 11, 0, NULL, 0),
-(11, 7, 1, 'content', 1, 1, 'array (\n  ''title'' => ''北京北航工作动态工作动态'',\n  ''description'' => ''​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态...'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0503/20130503114903243.jpg'',\n  ''inputtime'' => ''1367596090'',\n)', 1, 11, 0, NULL, 0),
-(11, 7, 12, 'content', 1, 1, 'array (\n  ''title'' => ''北京北航工作动态工作动态'',\n  ''description'' => ''​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态...'',\n  ''thumb'' => ''http://localhost/gyygs/uploadfile/2013/0503/20130503114903243.jpg'',\n  ''inputtime'' => ''1367596090'',\n)', 1, 11, 0, NULL, 0);
+(1, 15, 2, 'content', 1, 1, 'array (\n  ''title'' => ''北汽与北航开展通航领域合作'',\n  ''description'' => ''北汽与北航开展通航领域合作'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421105821844.jpg'',\n  ''inputtime'' => ''1366513067'',\n)', 1, 1, 0, NULL, 0),
+(1, 15, 1, 'content', 1, 1, 'array (\n  ''title'' => ''北汽与北航开展通航领域合作'',\n  ''description'' => ''北汽与北航开展通航领域合作'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421105821844.jpg'',\n  ''inputtime'' => ''1366513067'',\n)', 1, 1, 0, NULL, 0),
+(1, 15, 12, 'content', 1, 1, 'array (\n  ''title'' => ''北汽与北航开展通航领域合作'',\n  ''description'' => ''北汽与北航开展通航领域合作'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421105821844.jpg'',\n  ''inputtime'' => ''1366513067'',\n)', 1, 1, 0, NULL, 0),
+(1, 15, 10, 'content', 1, 1, 'array (\n  ''title'' => ''北汽与北航开展通航领域合作'',\n  ''description'' => ''北汽与北航开展通航领域合作'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421105821844.jpg'',\n  ''inputtime'' => ''1366513067'',\n)', 1, 1, 0, NULL, 0),
+(2, 16, 2, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421110020639.jpg'',\n  ''inputtime'' => ''1366513124'',\n  ''style'' => '''',\n)', 1, 2, 0, NULL, 0),
+(2, 16, 1, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421110020639.jpg'',\n  ''inputtime'' => ''1366513124'',\n  ''style'' => '''',\n)', 1, 2, 0, NULL, 0),
+(2, 16, 12, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421110020639.jpg'',\n  ''inputtime'' => ''1366513124'',\n  ''style'' => '''',\n)', 1, 2, 0, NULL, 0),
+(2, 16, 10, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421110020639.jpg'',\n  ''inputtime'' => ''1366513124'',\n  ''style'' => '''',\n)', 1, 2, 0, NULL, 0),
+(3, 15, 2, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业...'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421114538703.jpg'',\n  ''inputtime'' => ''1366515912'',\n)', 1, 3, 0, NULL, 0),
+(3, 15, 1, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业...'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421114538703.jpg'',\n  ''inputtime'' => ''1366515912'',\n)', 1, 3, 0, NULL, 0),
+(3, 15, 12, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限公司独'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业...'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421114538703.jpg'',\n  ''inputtime'' => ''1366515912'',\n)', 1, 3, 0, NULL, 0),
+(4, 15, 2, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业...'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421114608683.jpg'',\n  ''inputtime'' => ''1366515957'',\n)', 1, 4, 0, NULL, 0),
+(4, 15, 1, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业...'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421114608683.jpg'',\n  ''inputtime'' => ''1366515957'',\n)', 1, 4, 0, NULL, 0),
+(4, 15, 12, 'content', 1, 1, 'array (\n  ''title'' => ''北航先进工业产业研究院有限'',\n  ''description'' => ''北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业研究院有限公司独立运行北航先进工业产业...'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0421/20130421114608683.jpg'',\n  ''inputtime'' => ''1366515957'',\n)', 1, 4, 0, NULL, 0),
+(11, 7, 2, 'content', 1, 1, 'array (\n  ''title'' => ''北京北航工作动态工作动态'',\n  ''description'' => ''​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态...'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0503/20130503114903243.jpg'',\n  ''inputtime'' => ''1367596090'',\n)', 1, 11, 0, NULL, 0),
+(11, 7, 1, 'content', 1, 1, 'array (\n  ''title'' => ''北京北航工作动态工作动态'',\n  ''description'' => ''​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态...'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0503/20130503114903243.jpg'',\n  ''inputtime'' => ''1367596090'',\n)', 1, 11, 0, NULL, 0),
+(11, 7, 12, 'content', 1, 1, 'array (\n  ''title'' => ''北京北航工作动态工作动态'',\n  ''description'' => ''​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态​工作动态...'',\n  ''thumb'' => ''http://gyygs.buaa.edu.cn/uploadfile/2013/0503/20130503114903243.jpg'',\n  ''inputtime'' => ''1367596090'',\n)', 1, 11, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -5699,23 +5696,23 @@ CREATE TABLE `bh_poster` (
   `disabled` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `spaceid` (`spaceid`,`siteid`,`disabled`,`listorder`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+)    AUTO_INCREMENT=11 ;
 
 --
 -- 转存表中的数据 `bh_poster`
 --
 
 INSERT INTO `bh_poster` (`id`, `siteid`, `name`, `spaceid`, `type`, `setting`, `startdate`, `enddate`, `addtime`, `hits`, `clicks`, `listorder`, `disabled`) VALUES
-(1, 1, 'banner', 1, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://localhost/gyygs/uploadfile/poster/2.png'',\n    ''alt'' => '''',\n  ),\n)', 1285813808, 1446249600, 1285813833, 0, 1, 0, 0),
-(2, 1, 'phpcmsv9', 2, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://localhost/gyygs/statics/images/v9/ad_login.jpg'',\n    ''alt'' => ''phpcms专业建站系统'',\n  ),\n)', 1285816298, 1446249600, 1285816310, 0, 1, 0, 0),
-(3, 1, 'phpcms下载推荐', 3, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://localhost/gyygs/uploadfile/poster/3.png'',\n    ''alt'' => ''phpcms官方'',\n  ),\n)', 1286504815, 1446249600, 1286504865, 0, 1, 0, 0),
-(4, 1, 'phpcms广告', 4, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://localhost/gyygs/uploadfile/poster/4.gif'',\n    ''alt'' => ''phpcms官方'',\n  ),\n)', 1286505141, 1446249600, 1286505178, 0, 0, 0, 0),
-(5, 1, 'phpcms下载', 5, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://localhost/gyygs/uploadfile/poster/5.gif'',\n    ''alt'' => ''官方'',\n  ),\n)', 1286509363, 1446249600, 1286509401, 0, 0, 0, 0),
-(6, 1, 'phpcms下载推荐1', 6, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://localhost/gyygs/uploadfile/poster/5.gif'',\n    ''alt'' => ''官方'',\n  ),\n)', 1286510183, 1446249600, 1286510227, 0, 0, 0, 0),
-(7, 1, 'phpcms下载详情', 7, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://localhost/gyygs/uploadfile/poster/5.gif'',\n    ''alt'' => ''官方'',\n  ),\n)', 1286510314, 1446249600, 1286510341, 0, 0, 0, 0),
-(8, 1, 'phpcms下载页', 8, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://localhost/gyygs/uploadfile/poster/1.jpg'',\n    ''alt'' => ''官方站'',\n  ),\n)', 1286522084, 1446249600, 1286522125, 0, 0, 0, 0),
-(9, 1, 'phpcms v9广告', 9, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://localhost/gyygs/uploadfile/poster/4.gif'',\n    ''alt'' => '''',\n  ),\n)', 1287041759, 1446249600, 1287041804, 0, 0, 0, 0),
-(10, 1, 'phpcms', 10, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://localhost/gyygs/uploadfile/poster/6.jpg'',\n    ''alt'' => ''phpcms官方'',\n  ),\n)', 1289270509, 1446249600, 1289270541, 1, 0, 0, 0);
+(1, 1, 'banner', 1, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://gyygs.buaa.edu.cn/uploadfile/poster/2.png'',\n    ''alt'' => '''',\n  ),\n)', 1285813808, 1446249600, 1285813833, 0, 1, 0, 0),
+(2, 1, 'phpcmsv9', 2, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://gyygs.buaa.edu.cn/statics/images/v9/ad_login.jpg'',\n    ''alt'' => ''phpcms专业建站系统'',\n  ),\n)', 1285816298, 1446249600, 1285816310, 0, 1, 0, 0),
+(3, 1, 'phpcms下载推荐', 3, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://gyygs.buaa.edu.cn/uploadfile/poster/3.png'',\n    ''alt'' => ''phpcms官方'',\n  ),\n)', 1286504815, 1446249600, 1286504865, 0, 1, 0, 0),
+(4, 1, 'phpcms广告', 4, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://gyygs.buaa.edu.cn/uploadfile/poster/4.gif'',\n    ''alt'' => ''phpcms官方'',\n  ),\n)', 1286505141, 1446249600, 1286505178, 0, 0, 0, 0),
+(5, 1, 'phpcms下载', 5, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://gyygs.buaa.edu.cn/uploadfile/poster/5.gif'',\n    ''alt'' => ''官方'',\n  ),\n)', 1286509363, 1446249600, 1286509401, 0, 0, 0, 0),
+(6, 1, 'phpcms下载推荐1', 6, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://gyygs.buaa.edu.cn/uploadfile/poster/5.gif'',\n    ''alt'' => ''官方'',\n  ),\n)', 1286510183, 1446249600, 1286510227, 0, 0, 0, 0),
+(7, 1, 'phpcms下载详情', 7, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://gyygs.buaa.edu.cn/uploadfile/poster/5.gif'',\n    ''alt'' => ''官方'',\n  ),\n)', 1286510314, 1446249600, 1286510341, 0, 0, 0, 0),
+(8, 1, 'phpcms下载页', 8, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://gyygs.buaa.edu.cn/uploadfile/poster/1.jpg'',\n    ''alt'' => ''官方站'',\n  ),\n)', 1286522084, 1446249600, 1286522125, 0, 0, 0, 0),
+(9, 1, 'phpcms v9广告', 9, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://gyygs.buaa.edu.cn/uploadfile/poster/4.gif'',\n    ''alt'' => '''',\n  ),\n)', 1287041759, 1446249600, 1287041804, 0, 0, 0, 0),
+(10, 1, 'phpcms', 10, 'images', 'array (\n  1 => \n  array (\n    ''linkurl'' => ''http://www.phpcms.cn'',\n    ''imageurl'' => ''http://gyygs.buaa.edu.cn/uploadfile/poster/6.jpg'',\n    ''alt'' => ''phpcms官方'',\n  ),\n)', 1289270509, 1446249600, 1289270541, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -5736,7 +5733,7 @@ CREATE TABLE `bh_poster_201304` (
   `type` tinyint(1) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `pid` (`pid`,`type`,`ip`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5758,7 +5755,7 @@ CREATE TABLE `bh_poster_space` (
   `disabled` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`spaceid`),
   KEY `disabled` (`disabled`,`siteid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+)    AUTO_INCREMENT=11 ;
 
 --
 -- 转存表中的数据 `bh_poster_space`
@@ -5795,7 +5792,7 @@ CREATE TABLE `bh_queue` (
   PRIMARY KEY (`id`),
   KEY `siteid` (`siteid`),
   KEY `times` (`times`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5814,7 +5811,7 @@ CREATE TABLE `bh_release_point` (
   `ssl` tinyint(1) DEFAULT '0',
   `path` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5833,7 +5830,7 @@ CREATE TABLE `bh_search` (
   KEY `typeid` (`typeid`,`id`),
   KEY `siteid` (`siteid`),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+)    AUTO_INCREMENT=12 ;
 
 --
 -- 转存表中的数据 `bh_search`
@@ -5866,7 +5863,7 @@ CREATE TABLE `bh_search_keyword` (
   UNIQUE KEY `keyword` (`keyword`),
   UNIQUE KEY `pinyin` (`pinyin`),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -5887,7 +5884,7 @@ CREATE TABLE `bh_session` (
   `data` char(255) NOT NULL,
   PRIMARY KEY (`sessionid`),
   KEY `lastvisit` (`lastvisit`)
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+) ENGINE=MEMORY ;
 
 --
 -- 转存表中的数据 `bh_session`
@@ -5916,14 +5913,14 @@ CREATE TABLE `bh_site` (
   `setting` mediumtext,
   `uuid` char(40) DEFAULT '',
   PRIMARY KEY (`siteid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+)    AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `bh_site`
 --
 
 INSERT INTO `bh_site` (`siteid`, `name`, `dirname`, `domain`, `site_title`, `keywords`, `description`, `release_point`, `default_style`, `template`, `setting`, `uuid`) VALUES
-(1, '北航先进工业技术研究院', '', 'http://localhost/gyygs/', '北航先进工业技术研究院', '北航先进工业技术研究院', '北航先进工业技术研究院', '', 'default', 'default', 'array (\n  ''upload_maxsize'' => ''2048'',\n  ''upload_allowext'' => ''jpg|jpeg|gif|bmp|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|rar|zip|swf'',\n  ''watermark_enable'' => ''1'',\n  ''watermark_minwidth'' => ''300'',\n  ''watermark_minheight'' => ''300'',\n  ''watermark_img'' => ''statics/images/water//mark.png'',\n  ''watermark_pct'' => ''85'',\n  ''watermark_quality'' => ''80'',\n  ''watermark_pos'' => ''9'',\n)', '0d74d5c4-aa2f-11e2-947c-00ff90c9a787');
+(1, '北航先进工业技术研究院', '', 'http://gyygs.buaa.edu.cn/', '北航先进工业技术研究院', '北航先进工业技术研究院', '北航先进工业技术研究院', '', 'default', 'default', 'array (\n  ''upload_maxsize'' => ''2048'',\n  ''upload_allowext'' => ''jpg|jpeg|gif|bmp|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|rar|zip|swf'',\n  ''watermark_enable'' => ''1'',\n  ''watermark_minwidth'' => ''300'',\n  ''watermark_minheight'' => ''300'',\n  ''watermark_img'' => ''statics/images/water//mark.png'',\n  ''watermark_pct'' => ''85'',\n  ''watermark_quality'' => ''80'',\n  ''watermark_pos'' => ''9'',\n)', '0d74d5c4-aa2f-11e2-947c-00ff90c9a787');
 
 -- --------------------------------------------------------
 
@@ -5943,7 +5940,7 @@ CREATE TABLE `bh_sms_report` (
   `ip` varchar(15) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `mobile` (`mobile`,`posttime`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5980,7 +5977,7 @@ CREATE TABLE `bh_special` (
   `isvideo` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `disabled` (`disabled`,`siteid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6011,7 +6008,7 @@ CREATE TABLE `bh_special_content` (
   PRIMARY KEY (`id`),
   KEY `specialid` (`specialid`,`typeid`,`isdata`),
   KEY `typeid` (`typeid`,`isdata`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6028,7 +6025,7 @@ CREATE TABLE `bh_special_c_data` (
   `style` char(20) NOT NULL,
   `show_template` varchar(30) NOT NULL,
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -6040,7 +6037,7 @@ CREATE TABLE `bh_sphinx_counter` (
   `counter_id` int(11) unsigned NOT NULL,
   `max_doc_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`counter_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -6058,7 +6055,7 @@ CREATE TABLE `bh_sso_admin` (
   `ip` char(15) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+)    AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `bh_sso_admin`
@@ -6085,14 +6082,14 @@ CREATE TABLE `bh_sso_applications` (
   `synlogin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`appid`),
   KEY `synlogin` (`synlogin`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+)    AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `bh_sso_applications`
 --
 
 INSERT INTO `bh_sso_applications` (`appid`, `type`, `name`, `url`, `authkey`, `ip`, `apifilename`, `charset`, `synlogin`) VALUES
-(1, 'phpcms_v9', 'phpcms v9', 'http://localhost/gyygs/', 'qOIqMk27bgWCMFFlepzg6gEPlSWgtm9R', '', 'api.php?op=phpsso', 'utf-8', 1);
+(1, 'phpcms_v9', 'phpcms v9', 'http://gyygs.buaa.edu.cn/', 'qOIqMk27bgWCMFFlepzg6gEPlSWgtm9R', '', 'api.php?op=phpsso', 'utf-8', 1);
 
 -- --------------------------------------------------------
 
@@ -6118,7 +6115,7 @@ CREATE TABLE `bh_sso_members` (
   UNIQUE KEY `username` (`username`),
   KEY `email` (`email`),
   KEY `ucuserid` (`ucuserid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6137,7 +6134,7 @@ CREATE TABLE `bh_sso_messagequeue` (
   PRIMARY KEY (`id`),
   KEY `dateline` (`dateline`),
   KEY `succeed` (`succeed`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6158,7 +6155,7 @@ CREATE TABLE `bh_sso_session` (
   `data` char(255) NOT NULL,
   PRIMARY KEY (`sessionid`),
   KEY `lastvisit` (`lastvisit`)
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+) ENGINE=MEMORY ;
 
 -- --------------------------------------------------------
 
@@ -6170,7 +6167,7 @@ CREATE TABLE `bh_sso_settings` (
   `name` varchar(32) NOT NULL DEFAULT '',
   `data` text NOT NULL,
   PRIMARY KEY (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 --
 -- 转存表中的数据 `bh_sso_settings`
@@ -6203,7 +6200,7 @@ CREATE TABLE `bh_tag` (
   `cache` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `num` smallint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6220,7 +6217,7 @@ CREATE TABLE `bh_template_bak` (
   `template` text,
   PRIMARY KEY (`id`),
   KEY `fileid` (`fileid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6235,7 +6232,7 @@ CREATE TABLE `bh_times` (
   `isadmin` tinyint(1) NOT NULL DEFAULT '0',
   `times` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`username`,`isadmin`)
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+) ENGINE=MEMORY ;
 
 -- --------------------------------------------------------
 
@@ -6257,7 +6254,7 @@ CREATE TABLE `bh_type` (
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`typeid`),
   KEY `module` (`module`,`parentid`,`siteid`,`listorder`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
+)    AUTO_INCREMENT=53 ;
 
 --
 -- 转存表中的数据 `bh_type`
@@ -6283,7 +6280,7 @@ CREATE TABLE `bh_urlrule` (
   `urlrule` varchar(255) NOT NULL,
   `example` varchar(255) NOT NULL,
   PRIMARY KEY (`urlruleid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
+)    AUTO_INCREMENT=31 ;
 
 --
 -- 转存表中的数据 `bh_urlrule`
@@ -6329,7 +6326,7 @@ CREATE TABLE `bh_video` (
   KEY `status` (`status`,`listorder`,`id`),
   KEY `listorder` (`catid`,`status`,`listorder`,`id`),
   KEY `catid` (`catid`,`status`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6343,7 +6340,7 @@ CREATE TABLE `bh_video_content` (
   `videoid` int(10) unsigned NOT NULL DEFAULT '0',
   `listorder` smallint(5) unsigned NOT NULL DEFAULT '0',
   KEY `videoid` (`videoid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -6364,7 +6361,7 @@ CREATE TABLE `bh_video_data` (
   `relation` varchar(255) NOT NULL DEFAULT '',
   `video` tinyint(3) unsigned NOT NULL DEFAULT '0',
   KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -6389,7 +6386,7 @@ CREATE TABLE `bh_video_store` (
   `channelid` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`videoid`),
   KEY `videoid` (`videoid`,`status`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6408,7 +6405,7 @@ CREATE TABLE `bh_vote_data` (
   KEY `subjectid` (`subjectid`),
   KEY `userid` (`userid`),
   KEY `ip` (`ip`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -6425,7 +6422,7 @@ CREATE TABLE `bh_vote_option` (
   `listorder` tinyint(2) unsigned DEFAULT '0',
   PRIMARY KEY (`optionid`),
   KEY `subjectid` (`subjectid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6458,7 +6455,7 @@ CREATE TABLE `bh_vote_subject` (
   KEY `enabled` (`enabled`),
   KEY `fromdate` (`fromdate`,`todate`),
   KEY `todate` (`todate`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6474,7 +6471,7 @@ CREATE TABLE `bh_wap` (
   `setting` mediumtext,
   `status` tinyint(2) DEFAULT NULL,
   PRIMARY KEY (`siteid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)  ;
 
 --
 -- 转存表中的数据 `bh_wap`
@@ -6497,7 +6494,7 @@ CREATE TABLE `bh_wap_type` (
   `siteid` smallint(5) NOT NULL,
   `listorder` smallint(5) DEFAULT '0',
   PRIMARY KEY (`typeid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)   AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6514,7 +6511,7 @@ CREATE TABLE `bh_workflow` (
   `setting` text NOT NULL,
   `flag` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`workflowid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+)    AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `bh_workflow`
