@@ -17,17 +17,22 @@
 .left-nav .content li.cur a{background-position: left -72px;  font-weight:700; color:#0d4b9b}
 .left-nav .bottom{background-position: right -168px; height:216px}
 .col-auto{ padding:0 25px}
-.col-auto .title{font-size:25px;padding:5px 0 0;background: url({IMG_PATH}uline.gif) repeat-x left bottom; margin-bottom:15px}
+.col-auto .title{text-align:center; font-size:25px;padding:5px 0 0;background: url({IMG_PATH}uline.gif) repeat-x left bottom; margin-bottom:15px}
 .col-auto .content p{ margin-bottom:15px; font-size:14px; line-height:25px; color:#6f6f6f}
 .footer{color:#666; line-height:24px;width:920px; margin:auto; text-align:center; padding:12px 0; margin-top:52px; border-top:1px solid #e5e5e5}
 .footer p.info a{color:#666;}
 </style>
     <div class="main category_banner">
-    <img src="{APP_PATH}statics/images/category_banner{$catid}.png" width="960px" height="260px"/>
+    <img src="{APP_PATH}statics/images/category_banner{$catid}.png" width="960px" height="130px"/>
     </div>
 <div id="content">
 	<div class="col-left left-nav">
-    	<h1>{$catname}</h1>
+        {if $parentid}
+    	<h1>{$CATEGORYS[$parentid][catname]}</h1>
+        {/if}
+        {if !$parentid}
+        <h1>{$CATEGORYS[$catid][catname]}</h1>
+        {/if}
     	<ul class="content">
         	{loop $arrchild_arr $cid}
                 <li{if $catid==$cid} class="cur"{/if}><a href="{$CATEGORYS[$cid][url]}">{$CATEGORYS[$cid][catname]}</a></li>
@@ -36,6 +41,7 @@
         <div class="bottom"></div>
     </div>
   <div class="col-auto">
+    <div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)} </div>
     	<h1 class="title">{$title}</h1>
         <div class="content">
         	    {$content}

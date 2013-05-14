@@ -6,7 +6,7 @@
         	<div class="content">
         	{pc:content  action="position" posid="2" order="listorder DESC" num="3"}
         	 {loop $data $r}
-                <h4 class="blue"><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],36,'')}</a></h4>
+                <h4 class="blue"><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],56,'')}</a></h4>
                 <p>{if $n==1}<img src="{thumb($r[thumb],90,60)}" width="90" height="60"/>{str_cut($r[description],300)}{/if}{if $n!=1}{str_cut($r[description],90)}{/if}</p>
                 <div class="bk20 hr"><hr /></div>
                {/loop}  
@@ -29,11 +29,10 @@
         </div>
         <div class="box">
         		<h5>机构简介</h5>
-            <div style="margin:10px;">
-                <span style="font-weight:bold;">公司简介：</span>
-                    北京北航先进工业技术研究院有限公司成立于2010年11月，注册资本金5000万元，是北京航空航天大学委托北京北航资产经营有限公司独资设立的全资子公司。
+            <div style="font-size:12px;margin:10px;">
+                    2010年9月，北京航空航天大学作为中关村科学城首批建设单位与北京市人民政府签约共建“北京北航先进工业技术研究院”（以下简称研究院）。2010年12月，研究院注册成立法人实体北京北航先进工业技术研究院有限公司，目前注册资金5000万元。
                 <br><span style="font-weight:bold;">核心优势：</span>
-                    北京北航先进工业技术研究院有限公司以北航为主体、企业化运作，与北航民口科技管理部门、北航国家大学科技园三位一体支撑北京北航先进工业技术研究院的建设运行。北京北航先进工业技术研究院有限公司是北京北航先进工业技术研究院建设运行的企业实体，集合了北京航空航天大学的人才、科技、成果资源和北航国家大学科技园产学研合作基地、密云产业化基地以及公共服务平台资源，用专职专业的服务团队、提供优势的管理服务。
+                    研究院以学校为主体、市校共建、企业化运作。主要负责承担国家、北京市的重大科技研发项目；实施重大科技成果转化和在京落地产业化；孵化“空天信融合”特色的创新型企业；搭建国家级公共技术平台，为首都产业提供共性技术服务；培养和汇聚高端工程技术人才。研究院实行由北航民口科技管理部门、北航国家大学科技园、北京北航先进工业技术研究院有限公司三位一体建设运行的机制体制。
             </div>
             <!--
             <div class="intro_list">
@@ -123,9 +122,7 @@
 			{loop $data $r}
             {php $pic++}
 				<div class="kejiziyuan">
-					<a href="{$r[url]}">{$r[catname]}
-					<img src="{APP_PATH}statics/images/ziyuan{$pic}.jpg" width="100" height="40"/>
-                </a>
+					<a href="{$r[url]}">-- {$r[catname]} --</a>
 				</div>
 			{/loop}
 			{/pc}
