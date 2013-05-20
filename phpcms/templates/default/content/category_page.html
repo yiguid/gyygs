@@ -8,7 +8,7 @@
 .log a:hover{text-decoration: underline;}
 #header .content{width:880px; margin:auto; height:60px;padding:10px 0 0 0}
 #content{width:920px; min-height:400px; margin:auto; padding:14px 0 0 0}
-.left-nav{width:210px; height:399px; padding-top:10px}
+.left-nav{width:210px; height:399px; padding-top:0px}
 .left-nav h1,.left-nav .content li,.left-nav .content li.cur a,.left-nav .bottom{background: url({IMG_PATH}v9/about_left.png) no-repeat right top}
 .left-nav h1{display:block; height:40px; overflow:hidden; font-size:20px;padding-left:20px;}
 .left-nav .content{background: url({IMG_PATH}v9/about_left_bg.png) repeat-y right top; padding-left:44px}
@@ -16,7 +16,7 @@
 .left-nav .content li a{display:block; height:25px; line-height:25px; padding-left:14px; color:#6f6f6f}
 .left-nav .content li.cur a{background-position: left -72px;  font-weight:700; color:#0d4b9b}
 .left-nav .bottom{background-position: right -168px; height:216px}
-.col-auto{ padding:0 25px}
+.col-auto{ padding:8px 25px 0 25px;}
 .col-auto .title{text-align:center; font-size:25px;padding:5px 0 0;background: url({IMG_PATH}uline.gif) repeat-x left bottom; margin-bottom:15px}
 .col-auto .content p{ margin-bottom:15px; font-size:14px; line-height:25px; color:#6f6f6f}
 .footer{color:#666; line-height:24px;width:920px; margin:auto; text-align:center; padding:12px 0; margin-top:52px; border-top:1px solid #e5e5e5}
@@ -46,7 +46,7 @@
     <div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)} </div>
   {pc:get sql="SELECT * FROM bh_page where catid=$fid"}
 		{loop $data $key $val}
-        <h1 class="title">{$val[title]}</h1>
+        <!--<h1 class="title">{$val[title]}</h1>-->
         <div class="content">
         	    {$val[content]}
         </div>
