@@ -107,7 +107,7 @@
                 {pc:announce  action="lists" siteid="$siteid" num="5"}
                 <ul class="list lh24 f14">
                    {loop $data $r}
-                     <li><span class="rt">{date('Y-m-d',$r[addtime])}</span>.<a href="{APP_PATH}index.php?m=announce&c=index&a=show&aid={$r['aid']}">{$r['title']}</a></li>
+                     <li>.<a href="{APP_PATH}index.php?m=announce&c=index&a=show&aid={$r['aid']}">{str_cut($r[title],46,'')}</a></li>
                    {/loop}
                 </ul>
                 {/pc}
