@@ -102,12 +102,12 @@
     </div>
     <div class="col-auto">
     	<div class="box">
-        	 <h5 class="title-2">通知通告<a href="" class="more">&nbsp;</a></h5>
+        	 <h5 class="title-2">通知通告<a href="http://gyygs.buaa.edu.cn/index.php?m=content&c=index&a=lists&catid=38" class="more">更多>></a></h5>
              <div class="content">
-                {pc:announce  action="lists" siteid="$siteid" num="5"}
+                {pc:content action="lists" catid="38" siteid="$siteid" num="5" order="listorder ASC"}
                 <ul class="list lh24 f14">
                    {loop $data $r}
-                     <li>.<a href="{APP_PATH}index.php?m=announce&c=index&a=show&aid={$r['aid']}">{str_cut($r[title],46,'')}</a></li>
+                     <li>.<a href="{$r[url]}">{str_cut($r[title],46,'')}</a></li>
                    {/loop}
                 </ul>
                 {/pc}
